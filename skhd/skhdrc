@@ -1,6 +1,6 @@
 # open terminal 
 # ctrl - return : open -na /Applications/Warp.app
-ctrl - return : open -na /Applications/iTerm.app
+ctrl - return : wezterm start --always-new-process
 
 # Navigation
 alt - h : yabai -m window --focus west
@@ -46,3 +46,4 @@ ctrl + shift + alt - b : yabai -m space --balance
 
 # Restart yabai
 ctrl + cmd + alt - r: brew services restart yabai
+
