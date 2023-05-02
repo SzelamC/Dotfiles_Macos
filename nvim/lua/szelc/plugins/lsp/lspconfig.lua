@@ -22,6 +22,9 @@ local keymap = vim.keymap -- for conciseness
 local on_attach = function(client, bufnr)
   -- keybind options
   client.server_capabilities.semanticTokensProvider = nil
+  if client.name == "tsserver" then
+    client.server_capabilities.documentFormattingProvider = false
+  end
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
   -- set keybinds

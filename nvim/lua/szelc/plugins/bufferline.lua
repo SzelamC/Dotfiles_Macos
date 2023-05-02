@@ -1,4 +1,6 @@
-require("bufferline").setup({
+local bufferline = require("bufferline")
+
+bufferline.setup({
   options = {
     mode = "buffers",
     numbers = "none",
@@ -7,8 +9,8 @@ require("bufferline").setup({
     left_mouse_command = "buffer %d",
     middle_mouse_command = nil,
     indicator = {
-      icon = "▎", -- this should be omitted if indicator style is not 'icon'
-      style = "icon",
+      -- icon = "▎", -- this should be omitted if indicator style is not 'icon'
+      style = "none",
     },
     buffer_close_icon = "",
     modified_icon = "●",
@@ -24,14 +26,13 @@ require("bufferline").setup({
       {
         filetype = "NvimTree",
         text = "File Explorer",
-        text_align = "center",
+        text_align = "left",
         separator = true,
       },
     },
     color_icons = true,     -- whether or not to add the filetype icon highlights
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
-    -- show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
     get_element_icon = function(buf)
       return require("nvim-web-devicons").get_icon(buf.name, buf.extension, { default = true })
     end,
@@ -39,9 +40,7 @@ require("bufferline").setup({
     show_tab_indicators = true,
     show_duplicate_prefix = true, -- whether to show duplicate buffer prefix
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-    -- can also be a table containing 2 custom separators
-    -- [focused and unfocused]. eg: { '|', '|' }
-    separator_style = "thick",
+    separator_style = { "|", "|" },
     enforce_regular_tabs = false,
     always_show_bufferline = true,
     hover = {

@@ -10,7 +10,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
-opt.smartindent = true
+opt.smartindent = false
 opt.softtabstop = 2
 
 -- line wrapping
@@ -22,6 +22,7 @@ opt.smartcase = true
 opt.fillchars = { eob = " " }
 
 -- apperance
+opt.title = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
@@ -33,7 +34,7 @@ opt.backspace = "indent,eol,start"
 
 --clipboard
 opt.clipboard:append("unnamedplus")
-opt.clipboard = "unnamedplus"
+opt.clipboard:prepend({ "unnamed", "unnamedplus" })
 
 --split windows
 opt.splitright = true
@@ -42,7 +43,7 @@ opt.splitbelow = true
 opt.iskeyword:append("-")
 
 opt.cmdheight = 1
-opt.colorcolumn = "80"
+opt.colorcolumn = "100"
 opt.completeopt = { "menuone", "noselect" }
 opt.conceallevel = 0
 vim.opt.fileencoding = "utf-8"
@@ -58,9 +59,9 @@ opt.swapfile = false
 opt.backup = false
 opt.scrolloff = 8
 opt.sidescrolloff = 8
-opt.timeoutlen = 200
 opt.undofile = true
 opt.whichwrap:append("<>[]hl")
+opt.path:append({ "**" })
 vim.diagnostic.config({
   virtual_text = {
     prefix = "  ",
@@ -109,4 +110,3 @@ local default_plugins = {
 for _, plugin in pairs(default_plugins) do
   g["loaded_" .. plugin] = 1
 end
-

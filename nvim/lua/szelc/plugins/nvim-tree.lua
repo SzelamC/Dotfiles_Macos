@@ -6,7 +6,7 @@ end
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd([[highlight NvimTreeIndentMarker guifg=#95BDFF]])
+vim.cmd([[highlight NvimTreeIndentMarker guifg=#5ABEDC]])
 
 nvimTree.setup({
   -- BEGIN_DEFAULT_OPTS
@@ -60,22 +60,22 @@ nvimTree.setup({
     },
   },
   renderer = {
-    add_trailing = false,
+    add_trailing = true,
     group_empty = false,
     highlight_git = true,
     full_name = true,
     highlight_opened_files = "none",
     highlight_modified = "none",
     root_folder_label = ":~:s?$?/..?",
-    indent_width = 2,
+    indent_width = 0,
     indent_markers = {
-      enable = false,
+      enable = true,
       inline_arrows = true,
       icons = {
         corner = "└",
         edge = "│",
         item = "│",
-        bottom = "─",
+        -- bottom = "─",
         none = " ",
       },
     },

@@ -31,33 +31,44 @@ require("lazy").setup({
       require("szelc.plugins.nvim-tree")
     end,
   },
-  -- {
-  --   "nvim-neo-tree/neo-tree.nvim",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-  --     "MunifTanjim/nui.nvim",
-  --   },
-  --   branch = "v2.x",
-  --   config = function()
-  --     require("szelc.plugins.neo-tree")
-  --   end,
-  -- },
-  -- comment & utils
-  { "numToStr/Comment.nvim",               config = true },
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup({
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      })
+    end,
+  },
   {
     "echasnovski/mini.bufremove",
     version = "*",
-    -- config = true,
-    -- stylua: ignore
-    -- keys = {
-    --   { "<leader>c", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
-    --   { "<leader>C", function() require("mini.bufremove").delete(0, true) end,  desc = "Delete Buffer (Force)" },
-    -- },
   },
   {
     "HiPhish/nvim-ts-rainbow2",
     event = "VeryLazy",
+    config = function()
+      vim.api.nvim_set_hl(0, "@rainbow.red", { fg = "#FD8A8A" })
+      vim.api.nvim_set_hl(0, "@rainbow.pink", { fg = "#F6C6EA" })
+      vim.api.nvim_set_hl(0, "@rainbow.yellow", { fg = "#F9F9C5" })
+      vim.api.nvim_set_hl(0, "@rainbow.orange", { fg = "#FAAB7B" })
+      require("nvim-treesitter.configs").setup({
+        rainbow = {
+          hlgroups = {
+            "@rainbow.red",
+            "@rainbow.pink",
+            "@rainbow.yellow",
+            "@rainbow.orange",
+          },
+          enable = true,
+          -- list of languages you want to disable the plugin for
+          -- disable = { "jsx", "cpp" },
+          -- Which query to use for finding delimiters
+          query = { "rainbow-parens", "rainbow-tags", "rainbow-parens-react" },
+          -- Highlight the entire buffer all at once
+          strategy = require("ts-rainbow").strategy.global,
+        },
+      })
+    end,
   },
   {
     "NvChad/nvim-colorizer.lua",
@@ -83,9 +94,9 @@ require("lazy").setup({
     event = "VeryLazy",
     config = function()
       require("szelc.plugins.tokyonight")
-      -- vim.cmd([[colorscheme tokyonight]])
     end,
   },
+  { "bluz71/vim-nightfly-colors",          name = "nightfly",                      lazy = false, priority = 1000 },
   {
     "navarasu/onedark.nvim",
     priority = 1000, -- Ensure it loads first
@@ -106,37 +117,7 @@ require("lazy").setup({
         colors = {
           purple = "#c678dd",
         },
-        highlights = {
-          -- ["@punctuation.bracket"] = { fg = "$orange" },
-        },
-        -- highlights = {
-        -- ["@variable"] = { fg = "#c0caf5" },
-        -- black = "#0c0e15",
-        -- bg0 = "#1a212e",
-        -- bg1 = "#21283b",
-        -- bg2 = "#283347",
-        -- bg3 = "#2a324a",()
-        -- bg_d = "#141b24",
-        -- bg_blue = "#54b0fd",
-        -- bg_yellow = "#f2cc81",
-        -- fg = "#93a4c3",
-        -- purple = "#c75ae8",
-        -- green = "#8bcd5b",
-        -- orange = "#dd9046",
-        -- blue = "#41a7fc",
-        -- yellow = "#efbd5d",
-        -- cyan = "#34bfd0",
-        -- red = "#f65866",
-        -- grey = "#455574",
-        -- light_grey = "#6c7d9c",
-        -- dark_cyan = "#1b6a73",
-        -- dark_red = "#992525",
-        -- dark_yellow = "#8f610d",
-        -- dark_purple = "#862aa1",
-        -- diff_add = "#27341c",
-        -- diff_delete = "#331c1e",
-        -- diff_change = "#102b40",
-        -- diff_text = "#1c4a6e",
+        highlights = {},
       })
       vim.cmd([[colorscheme onedark]])
     end,
@@ -272,10 +253,6 @@ require("lazy").setup({
         config = function()
           require("szelc.plugins.lsp.mason")
         end,
-        -- dependencies = {
-        --   { "mfussenegger/nvim-dap" },
-        --   { "jay-babu/mason-nvim-dap.nvim", config = true },
-        -- },
       },
       "williamboman/mason-lspconfig.nvim",
     },
@@ -315,10 +292,9 @@ require("lazy").setup({
     config = function()
       require("szelc.plugins.treesitter")
     end,
-    -- dependencies = {
-    --   "nvim-treesitter/nvim-treesitter-textobjects",
-    --   config = true
-    -- },
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
   },
   {
     "nvim-treesitter/playground",
@@ -331,16 +307,6 @@ require("lazy").setup({
     end,
   },
   { "windwp/nvim-ts-autotag" },
-  -- buffer line
-  -- {
-  --   "romgrk/barbar.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   config = function()
-  --     require("szelc.plugins.barbar")
-  --   end,
-  -- },
-  --
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
@@ -394,7 +360,8 @@ require("lazy").setup({
     "ianding1/leetcode.vim",
     config = function()
       vim.g.leetcode_browser = "firefox"
-      vim.g.leetcode_solution_filetype = "javascript"
+      vim.g.leetcode_solution_filetype = "cpp"
+      vim.g.leetcode_root_dir = "~/dev/leetcode"
     end,
   },
 }, {

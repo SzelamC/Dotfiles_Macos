@@ -12,6 +12,7 @@ keymap.set("i", ";;", "<ESC>A;")
 keymap.set("n", "<leader>h", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 keymap.set("v", "d", '"_d')
+keymap.set("n", "dd", '"_dd')
 keymap.set("n", "<C-s>", ":w<CR>")
 keymap.set("n", "<C-h>", "<C-w>h")
 keymap.set("n", "<C-j>", "<C-w>j")
@@ -55,3 +56,6 @@ keymap.set("n", "q", "<Nop>")
 -- copilot
 keymap.set("n", "q", "<Nop>")
 vim.api.nvim_set_keymap("i", "<C-]>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+-- git related
+keymap.set("n", "<leader>G", "<cmd>Git<CR>")
