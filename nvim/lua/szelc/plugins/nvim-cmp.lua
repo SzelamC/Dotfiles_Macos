@@ -17,13 +17,7 @@ require("luasnip/loaders/from_vscode")
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
-local cmp_style = {
-  icons = true,
-  lspkind_text = true,
-  style = "default",           -- default/flat_light/flat_dark/atom/atom_colored
-  border_color = "grey_fg",    -- only applicable for "default" style, use color names from base30 variables
-  selected_item_bg = "colored", -- colored / simple
-}
+local cmp_style = "default"
 
 local function border(hl_name)
   return {
@@ -52,6 +46,7 @@ cmp.setup({
       side_padding = (cmp_style ~= "atom" and cmp_style ~= "atom_colored") and 1 or 0,
       winhighlight = "Normal:CmpPmenu,CursorLine:Visual,Search:PmenuSel",
       scrollbar = false,
+      border = border("CmpBorder"),
     },
     documentation = {
       border = border("CmpDocBorder"),
