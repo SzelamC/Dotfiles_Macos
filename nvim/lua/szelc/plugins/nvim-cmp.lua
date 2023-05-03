@@ -17,21 +17,54 @@ require("luasnip/loaders/from_vscode")
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
+local cmp_style = {
+  icons = true,
+  lspkind_text = true,
+  style = "default",           -- default/flat_light/flat_dark/atom/atom_colored
+  border_color = "grey_fg",    -- only applicable for "default" style, use color names from base30 variables
+  selected_item_bg = "colored", -- colored / simple
+}
+
+local function border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
+
 cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   },
+  completion = {
+    completeopt = "menu,menuone",
+  },
   window = {
-    completion = cmp.config.window.bordered({
-      col_offset = -3,
-      side_padding = 0,
-      winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-    }),
-    documentation = cmp.config.window.bordered({
-      winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-    }),
+    completion = {
+      side_padding = (cmp_style ~= "atom" and cmp_style ~= "atom_colored") and 1 or 0,
+      winhighlight = "Normal:CmpPmenu,CursorLine:Visual,Search:PmenuSel",
+      scrollbar = false,
+    },
+    documentation = {
+      border = border("CmpDocBorder"),
+      winhighlight = "Normal:CmpDoc",
+    },
+    -- completion = cmp.config.window.bordered({
+    --   col_offset = -3,
+    --   side_padding = 0,
+    --   winhighlight = "Normal:Normal,FloatBorder:Pmenu,CursorLine:Visual,Search:None",
+    -- }),
+    -- documentation = cmp.config.window.bordered({
+    --   winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+    -- }),
   },
   mapping = cmp.mapping.preset.insert({
     ["<S-Tab>"] = cmp.mapping.select_prev_item(),

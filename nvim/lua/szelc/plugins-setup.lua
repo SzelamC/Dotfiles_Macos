@@ -44,33 +44,6 @@ require("lazy").setup({
     version = "*",
   },
   {
-    "HiPhish/nvim-ts-rainbow2",
-    event = "VeryLazy",
-    config = function()
-      vim.api.nvim_set_hl(0, "@rainbow.red", { fg = "#FD8A8A" })
-      vim.api.nvim_set_hl(0, "@rainbow.pink", { fg = "#F6C6EA" })
-      vim.api.nvim_set_hl(0, "@rainbow.yellow", { fg = "#F9F9C5" })
-      vim.api.nvim_set_hl(0, "@rainbow.orange", { fg = "#FAAB7B" })
-      require("nvim-treesitter.configs").setup({
-        rainbow = {
-          hlgroups = {
-            "@rainbow.red",
-            "@rainbow.pink",
-            "@rainbow.yellow",
-            "@rainbow.orange",
-          },
-          enable = true,
-          -- list of languages you want to disable the plugin for
-          -- disable = { "jsx", "cpp" },
-          -- Which query to use for finding delimiters
-          query = { "rainbow-parens", "rainbow-tags", "rainbow-parens-react" },
-          -- Highlight the entire buffer all at once
-          strategy = require("ts-rainbow").strategy.global,
-        },
-      })
-    end,
-  },
-  {
     "NvChad/nvim-colorizer.lua",
     config = function(_, opts)
       require("colorizer").setup(opts)
@@ -294,6 +267,7 @@ require("lazy").setup({
     end,
     dependencies = {
       "JoosepAlviste/nvim-ts-context-commentstring",
+      { "HiPhish/nvim-ts-rainbow2", event = "VeryLazy" },
     },
   },
   {
@@ -402,12 +376,10 @@ require("lazy").setup({
         "zipPlugin",
         "tutor",
         "rplugin",
-        "syntax",
         "synmenu",
         "optwin",
         "compiler",
         "bugreport",
-        "ftplugin",
       },
     },
   },
