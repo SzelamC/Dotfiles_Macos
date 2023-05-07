@@ -54,7 +54,6 @@ keymap.set("n", "<leader>bp", ":BufferLineTogglePin<CR>", opts)
 keymap.set("n", "q", "<Nop>")
 
 -- copilot
-keymap.set("n", "q", "<Nop>")
 vim.api.nvim_set_keymap("i", "<C-]>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 -- git related

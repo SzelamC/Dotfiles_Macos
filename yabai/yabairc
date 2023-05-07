@@ -1,19 +1,20 @@
 #!/usr/bin/env sh
-
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 yabai -m config                                 \
     debug_output                 off             \
-    mouse_follows_focus          off            \
+    mouse_follows_focus          on             \
     focus_follows_mouse          autofocus      \
     window_origin_display        default        \
     window_placement             second_child   \
-    window_topmost               on             \
+    window_topmost              on            \
     window_animation_duration    0.3           \
     window_animation_frame_rate  120            \
     insert_feedback_color        0xffd75f5f     \
-    active_window_border_color   0xff8fffb8    \
+    active_window_border_color   0xff4CFFF9   \
     normal_window_border_color   0xff555555     \
     window_border_width          2              \
     window_border_radius         12             \
@@ -67,11 +68,14 @@ yabai -m config                                 \
 # yabai -m config window_gap                   3
 #
 # turn off manage
-yabai -m rule --add app="^System Preferences$" manage=off
-yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Finder$" layer=above manage=off sticky=on 
 yabai -m rule --add app="^Stats$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Cursor Pro$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Fig$" layer=above manage=off
+
 
 echo "yabai configuration loaded.."
 

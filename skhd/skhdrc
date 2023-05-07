@@ -1,6 +1,7 @@
 # open terminal 
 # ctrl - return : open -na /Applications/Warp.app
-ctrl - return : wezterm start --always-new-process
+ctrl - return : open -na /Applications/WezTerm.app
+# ctrl - return : open -na /Applications/Hyper.app
 
 # Navigation
 alt - h : yabai -m window --focus west
