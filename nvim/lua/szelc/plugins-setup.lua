@@ -31,6 +31,21 @@ require("lazy").setup({
       require("szelc.plugins.nvim-tree")
     end,
   },
+
+  -- general
+  {
+    "max397574/better-escape.nvim",
+    event = "InsertEnter",
+    config = function()
+      require("better_escape").setup({
+        mapping = { "jk" },
+        timeout = vim.o.timeoutlen,
+      })
+    end,
+  },
+  {
+    "gabrielpoca/replacer.nvim",
+  },
   {
     "numToStr/Comment.nvim",
     config = function()
@@ -60,16 +75,7 @@ require("lazy").setup({
     cmd = { "TodoTrouble", "TodoTelescope" },
     event = { "BufReadPost", "BufNewFile" },
   },
-  { "lukas-reineke/indent-blankline.nvim", event = { "BufReadPost", "BufNewFile" } },
   -- appearance
-  {
-    "folke/tokyonight.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("szelc.plugins.tokyonight")
-    end,
-  },
-  { "bluz71/vim-nightfly-colors",          name = "nightfly",                      lazy = false, priority = 1000 },
   {
     "navarasu/onedark.nvim",
     priority = 1000, -- Ensure it loads first
@@ -106,13 +112,9 @@ require("lazy").setup({
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = { "BufReadPost", "BufNewFile" },
+    event = { "BufNewFile" },
     opts = {
-      -- char = "▏",
       char = "│",
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
     },
   },
   {
@@ -136,7 +138,6 @@ require("lazy").setup({
       require("mini.indentscope").setup(opts)
     end,
   },
-
   -- status line
   {
     "nvim-lualine/lualine.nvim",
@@ -146,6 +147,14 @@ require("lazy").setup({
     },
     config = function()
       require("szelc.plugins.lualine")
+    end,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("szelc.plugins.bufferline")
     end,
   },
 
@@ -208,7 +217,6 @@ require("lazy").setup({
     end,
   },
   -- LSP
-
   {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
@@ -234,13 +242,6 @@ require("lazy").setup({
     end,
   },
   {
-    "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    config = function()
-      require("better_escape").setup()
-    end,
-  },
-  {
     "glepnir/lspsaga.nvim",
     event = "VeryLazy",
     branch = "main",
@@ -259,6 +260,7 @@ require("lazy").setup({
 
   -- formatting & linting
   "jayp0521/mason-null-ls.nvim",
+
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
@@ -270,9 +272,6 @@ require("lazy").setup({
       { "HiPhish/nvim-ts-rainbow2", event = "VeryLazy" },
     },
   },
-  {
-    "nvim-treesitter/playground",
-  },
   -- auto closing
   {
     "windwp/nvim-autopairs",
@@ -281,14 +280,7 @@ require("lazy").setup({
     end,
   },
   { "windwp/nvim-ts-autotag" },
-  {
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("szelc.plugins.bufferline")
-    end,
-  },
+
   -- git
   {
     "lewis6991/gitsigns.nvim",
@@ -317,9 +309,7 @@ require("lazy").setup({
     "tpope/vim-fugitive",
   },
 
-  -- -- playground
-  -- "ThePrimeagen/vim-be-good",
-
+  -- copilot
   {
     "github/copilot.vim",
     event = { "BufReadPost", "BufNewFile" },
@@ -330,6 +320,8 @@ require("lazy").setup({
       }
     end,
   },
+
+  -- fancy
   {
     "ianding1/leetcode.vim",
     config = function()

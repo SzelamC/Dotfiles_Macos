@@ -59,21 +59,40 @@ end
 -- 		on_attach = on_attach,
 -- 	},
 -- })
-lspconfig["tsserver"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+local servers = {
+  "tsserver",
+  "cssls",
+  "svelte",
+  "pyright",
+  "clangd",
+  "yamlls",
+  "dockerls",
+  "prismals",
+  "emmet_ls",
+  "gopls",
+  "hls",
+}
 
--- configure css server
-lspconfig["cssls"].setup({
-  capabilities = capabilities,
-  on_attach = on_attach,
-})
+-- server use default options
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+  })
+end
 
--- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
+lspconfig.tailwindcss.setup({
   capabilities = capabilities,
   on_attach = on_attach,
+  settings = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+        },
+      },
+    },
+  },
 })
 
 -- configure lua server (with special settings)
@@ -98,7 +117,6 @@ lspconfig["lua_ls"].setup({
   },
 })
 
-lspconfig["svelte"].setup({})
 lspconfig["pyright"].setup({
   on_attach = on_attach,
   settings = {
@@ -115,17 +133,6 @@ lspconfig["pyright"].setup({
   },
 })
 
-lspconfig["clangd"].setup({
-  on_attach = on_attach,
-})
-lspconfig["yamlls"].setup({})
-lspconfig["dockerls"].setup({})
-lspconfig["svelte"].setup({
-  on_attach = on_attach,
-})
-lspconfig["prismals"].setup({})
-lspconfig["emmet_ls"].setup({})
-lspconfig["dartls"].setup({})
 lspconfig["stylelint_lsp"].setup({
   filetypes = {
     "css",
@@ -152,5 +159,3 @@ lspconfig["rust_analyzer"].setup({
     },
   },
 })
-lspconfig["gopls"].setup({})
-lspconfig["hls"].setup({})

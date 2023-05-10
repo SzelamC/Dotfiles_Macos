@@ -32,6 +32,7 @@ keymap.set("v", "<leader>y", '"+y')
 keymap.set("n", "<leader>vs", ":vsplit<CR>")
 keymap.set("n", "<leader>s", ":split<CR>")
 keymap.set("n", "<leader>c", ":lua require('mini.bufremove').delete(0, false)<CR>", opts)
+keymap.set("n", "<leader>gr", ":lua require('replacer').run()<CR>>", opts)
 
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 
@@ -43,15 +44,12 @@ keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
 
 -- lsp related
-keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", { silent = true })
+keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.format()<CR>", opts)
 
 -- barbar
 keymap.set("n", "H", ":BufferLineCyclePrev<CR>")
 keymap.set("n", "L", ":BufferLineCycleNext<CR>")
 keymap.set("n", "<leader>bp", ":BufferLineTogglePin<CR>", opts)
-
--- disable
-keymap.set("n", "q", "<Nop>")
 
 -- copilot
 vim.api.nvim_set_keymap("i", "<C-]>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
