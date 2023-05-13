@@ -60,8 +60,8 @@ config.colors = {
     inactive_tab_edge = "#1a1b26",
     active_tab = {
       -- The color of the background area for the tab
-      bg_color = "#24283b",
-      fg_color = " #9699a3",
+      bg_color = "#545873",
+      fg_color = " #fff",
     },
     inactive_tab = {
       bg_color = "#1a1b26",
