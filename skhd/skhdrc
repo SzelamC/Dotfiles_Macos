@@ -46,5 +46,4 @@ shift + alt - n : yabai -m space --create
 ctrl + shift + alt - b : yabai -m space --balance
 
 # Restart yabai
-ctrl + cmd + alt - r: brew services restart yabai
-
+ctrl + cmd + alt - r: yabai --restart-service

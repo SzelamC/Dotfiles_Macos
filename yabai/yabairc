@@ -10,7 +10,7 @@ yabai -m config                                 \
     focus_follows_mouse          autofocus      \
     window_origin_display        default        \
     window_placement             second_child   \
-    window_topmost              on            \
+    window_topmost               off            \
     window_animation_duration    0.3           \
     window_animation_frame_rate  120            \
     insert_feedback_color        0xffd75f5f     \
@@ -18,7 +18,7 @@ yabai -m config                                 \
     normal_window_border_color   0xff555555     \
     window_border_width          2              \
     window_border_radius         12             \
-    window_border_blur           of            \
+    window_border_blur           off            \
     window_border_hidpi          on             \
     window_border                on            \
     split_ratio                  0.50           \
@@ -66,15 +66,15 @@ yabai -m config                                 \
 # yabai -m config left_padding                 3
 # yabai -m config right_padding                3
 # yabai -m config window_gap                   3
-#
-# turn off manage
+
+# custom rule
 yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Finder$" layer=above manage=off sticky=on 
+yabai -m rule --add app="^Finder$" layer=above manage=off sticky=on
 yabai -m rule --add app="^Stats$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Cursor Pro$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^Fig$" layer=above manage=off
+yabai -m rule --add app="^Arc$" mouse_follows_focus=off
 
 
 echo "yabai configuration loaded.."
