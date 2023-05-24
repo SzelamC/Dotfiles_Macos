@@ -23,7 +23,12 @@ require("lazy").setup({
   {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
+      {
+        "mskelton/termicons.nvim",
+        dependencies = {
+          "nvim-tree/nvim-web-devicons",
+        },
+      },
     },
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
     tag = "nightly",
@@ -42,9 +47,6 @@ require("lazy").setup({
         timeout = vim.o.timeoutlen,
       })
     end,
-  },
-  {
-    "gabrielpoca/replacer.nvim",
   },
   {
     "numToStr/Comment.nvim",

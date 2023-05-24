@@ -69,7 +69,7 @@ nvimTree.setup({
     root_folder_label = ":~:s?$?/..?",
     indent_width = 0,
     indent_markers = {
-      enable = true,
+      enable = false,
       inline_arrows = true,
       icons = {
         corner = "└",
@@ -126,7 +126,7 @@ nvimTree.setup({
     auto_open = true,
   },
   update_focused_file = {
-    enable = false,
+    enable = true,
     update_root = true,
     ignore_list = {},
   },
@@ -155,7 +155,7 @@ nvimTree.setup({
     dotfiles = false,
     git_clean = false,
     no_buffer = false,
-    custom = {},
+    custom = { "^.git$" },
     exclude = {},
   },
   filesystem_watchers = {

@@ -31,8 +31,7 @@ keymap.set("n", "<leader>y", '"+y')
 keymap.set("v", "<leader>y", '"+y')
 keymap.set("n", "<leader>vs", ":vsplit<CR>")
 keymap.set("n", "<leader>s", ":split<CR>")
-keymap.set("n", "<leader>c", ":lua require('mini.bufremove').delete(0, false)<CR>", opts)
-keymap.set("n", "<leader>gr", ":lua require('replacer').run()<CR>>", opts)
+keymap.set("n", "<leader>c", ":lua require('mini.bufremove').delete(0, true)<CR>", opts)
 
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 

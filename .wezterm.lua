@@ -77,11 +77,19 @@ config.window_padding = {
   right = "0.5cell",
 }
 
-config.font = wezterm.font({
-  family = "JetBrainsMono Nerd Font",
-  weight = "Regular",
-  italic = false,
-  harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+-- config.font = wezterm.font_with_fallback({
+--   family = "JetBrainsMono Nerd Font",
+--   weight = "Regular",
+--   italic = false,
+--   harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+-- }, { family = "termicons" })
+
+config.font = wezterm.font_with_fallback({
+  {
+    family = "JetBrainsMono Nerd Font",
+    harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+  },
+  "termicons",
 })
 
 config.font_size = 12
