@@ -170,59 +170,15 @@ require("lazy").setup({
     end,
   },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-  -- autocompletion
-  {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {
-      {
-        -- snippet plugin
-        "L3MON4D3/LuaSnip",
-        dependencies = "rafamadriz/friendly-snippets",
-      },
 
-      -- autopairing of (){}[] etc
-      {
-        "windwp/nvim-autopairs",
-        event = "VeryLazy",
-        opts = {
-          fast_wrap = {},
-          disable_filetype = { "TelescopePrompt", "vim" },
-        },
-        config = function(_, opts)
-          require("nvim-autopairs").setup(opts)
-
-          -- setup cmp for autopairs
-          local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-        end,
-      },
-
-      -- cmp sources plugins
-      {
-        "saadparwaiz1/cmp_luasnip",
-        "hrsh7th/cmp-nvim-lua",
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-      },
-    },
-    config = function(_, opts)
-      require("cmp").setup(opts)
-    end,
-  },
+  -- LSP stuff
   {
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    config = function()
-      require("szelc.plugins.nvim-cmp")
-    end,
-  },
-  -- LSP
-  {
-    "neovim/nvim-lspconfig",
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v2.x",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+      -- LSP Support
+      { "neovim/nvim-lspconfig" }, -- Required
       {
         "jose-elias-alvarez/null-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -231,24 +187,35 @@ require("lazy").setup({
         end,
       },
       {
+        -- Optional
         "williamboman/mason.nvim",
+        build = function()
+          pcall(vim.cmd, "MasonUpdate")
+        end,
         cmd = "Mason",
         config = function()
           require("szelc.plugins.lsp.mason")
         end,
       },
-      "williamboman/mason-lspconfig.nvim",
+      { "williamboman/mason-lspconfig.nvim" }, -- Optional
+
+      -- Autocompletion
+      {
+        "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
+        dependencies = {
+          "L3MON4D3/LuaSnip",
+          dependencies = "rafamadriz/friendly-snippets",
+        },
+      },                       -- Required
+      { "hrsh7th/cmp-nvim-lsp" }, -- Required
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lua",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
     },
     config = function()
-      require("szelc.plugins.lsp.lspconfig")
-    end,
-  },
-  {
-    "glepnir/lspsaga.nvim",
-    event = "VeryLazy",
-    branch = "main",
-    config = function()
-      require("szelc.plugins.lsp.lspsaga")
+      require("szelc.plugins.lsp.lsp-zero")
     end,
   },
   {
@@ -277,7 +244,12 @@ require("lazy").setup({
   -- auto closing
   {
     "windwp/nvim-autopairs",
-    config = function()
+    event = "VeryLazy",
+    opts = {
+      fast_wrap = {},
+      disable_filetype = { "TelescopePrompt", "vim" },
+    },
+    config = function(_, opts)
       require("szelc.plugins.autopairs")
     end,
   },
