@@ -75,7 +75,7 @@ yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Cursor Pro$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Arc$" mouse_follows_focus=off
-
+yabai -m rule --add app="^Arc$" title="^Space [0-9]+" sticky=on layer=above manage=off
 
 echo "yabai configuration loaded.."
 

@@ -130,7 +130,17 @@ require("lazy").setup({
     },
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason", "markdown" },
+        pattern = {
+          "help",
+          "alpha",
+          "dashboard",
+          "nvim-tree",
+          "Trouble",
+          "lazy",
+          "mason",
+          "markdown",
+          "markdown-inline",
+        },
         callback = function()
           vim.b.miniindentscope_disable = true
         end,
@@ -182,20 +192,16 @@ require("lazy").setup({
       {
         "jose-elias-alvarez/null-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
-        config = function()
-          require("szelc.plugins.lsp.null-ls")
-        end,
       },
       {
         -- Optional
         "williamboman/mason.nvim",
+
+        event = { "BufReadPost", "BufNewFile" },
         build = function()
           pcall(vim.cmd, "MasonUpdate")
         end,
         cmd = "Mason",
-        config = function()
-          require("szelc.plugins.lsp.mason")
-        end,
       },
       { "williamboman/mason-lspconfig.nvim" }, -- Optional
 
@@ -207,12 +213,12 @@ require("lazy").setup({
           "L3MON4D3/LuaSnip",
           dependencies = "rafamadriz/friendly-snippets",
         },
-      },                       -- Required
-      { "hrsh7th/cmp-nvim-lsp" }, -- Required
-      "saadparwaiz1/cmp_luasnip",
-      "hrsh7th/cmp-nvim-lua",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
+      },
+      { "hrsh7th/cmp-nvim-lsp",     event = "VeryLazy" }, -- Required
+      { "saadparwaiz1/cmp_luasnip", event = "VeryLazy" },
+      { "hrsh7th/cmp-nvim-lua",     event = "VeryLazy" },
+      { "hrsh7th/cmp-buffer",       event = "VeryLazy" },
+      { "hrsh7th/cmp-path",         event = "VeryLazy" },
     },
     config = function()
       require("szelc.plugins.lsp.lsp-zero")
@@ -220,6 +226,7 @@ require("lazy").setup({
   },
   {
     "onsails/lspkind.nvim",
+    event = "VeryLazy",
   },
   {
     "j-hui/fidget.nvim",
@@ -298,6 +305,7 @@ require("lazy").setup({
   -- fancy
   {
     "ianding1/leetcode.vim",
+    event = "VeryLazy",
     config = function()
       vim.g.leetcode_browser = "firefox"
       vim.g.leetcode_solution_filetype = "cpp"
