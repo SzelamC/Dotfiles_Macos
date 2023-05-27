@@ -6,9 +6,9 @@ opt.relativenumber = true
 opt.number = true
 
 --tabs & indentation
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.softtabstop = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.expandtab = true
 
 opt.smartindent = true
@@ -64,10 +64,10 @@ opt.whichwrap:append("<>[]hl")
 opt.updatetime = 50
 opt.path:append({ "**" })
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = "  ",
-  },
-  float = true,
+	virtual_text = {
+		prefix = "  ",
+	},
+	float = true,
 })
 
 -- highlight
@@ -80,34 +80,34 @@ augroup END
 vim.g.copilot_no_tab_map = true
 
 local default_plugins = {
-  -- "2html_plugin",
-  -- "getscript",
-  -- "getscriptPlugin",
-  -- "gzip",
-  -- "logipat",
-  -- "netrw",
-  -- "netrwPlugin",
-  -- "netrwSettings",
-  -- "netrwFileHandlers",
-  -- "matchit",
-  -- "tar",
-  -- "tarPlugin",
-  -- "rrhelper",
-  -- "spellfile_plugin",
-  -- "vimball",
-  -- "vimballPlugin",
-  -- "zip",
-  -- "zipPlugin",
-  -- "tutor",
-  -- "rplugin",
-  -- "syntax",
-  -- "synmenu",
-  -- "optwin",
-  -- "compiler",
-  -- "bugreport",
-  -- "ftplugin",
+	-- "2html_plugin",
+	-- "getscript",
+	-- "getscriptPlugin",
+	-- "gzip",
+	-- "logipat",
+	-- "netrw",
+	-- "netrwPlugin",
+	-- "netrwSettings",
+	-- "netrwFileHandlers",
+	-- "matchit",
+	-- "tar",
+	-- "tarPlugin",
+	-- "rrhelper",
+	-- "spellfile_plugin",
+	-- "vimball",
+	-- "vimballPlugin",
+	-- "zip",
+	-- "zipPlugin",
+	-- "tutor",
+	-- "rplugin",
+	-- "syntax",
+	-- "synmenu",
+	-- "optwin",
+	-- "compiler",
+	-- "bugreport",
+	-- "ftplugin",
 }
 
 for _, plugin in pairs(default_plugins) do
-  g["loaded_" .. plugin] = 1
+	g["loaded_" .. plugin] = 1
 end
