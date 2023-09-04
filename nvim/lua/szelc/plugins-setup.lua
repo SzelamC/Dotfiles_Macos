@@ -96,6 +96,10 @@ require("lazy").setup({
 			require("szelc.plugins.colorscheme.tundra")
 		end,
 	},
+	{
+		"stevearc/dressing.nvim",
+		event = "VeryLazy",
+	},
 	-- {
 	-- 	"folke/tokyonight.nvim",
 	-- 	lazy = false,
