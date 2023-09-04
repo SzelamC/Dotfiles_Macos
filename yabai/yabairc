@@ -1,0 +1,81 @@
+#!/usr/bin/env sh
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+yabai -m config                                 \
+    debug_output                 off             \
+    mouse_follows_focus          on             \
+    focus_follows_mouse          autofocus      \
+    window_origin_display        default        \
+    window_placement             second_child   \
+    window_topmost               off            \
+    window_animation_duration    0.3           \
+    window_animation_frame_rate  120            \
+    insert_feedback_color        0xffd75f5f     \
+    active_window_border_color   0xff4CFFF9   \
+    normal_window_border_color   0xff555555     \
+    window_border_width          2              \
+    window_border_radius         12             \
+    window_border_blur           off            \
+    window_border_hidpi          on             \
+    window_border                on            \
+    split_ratio                  0.50           \
+    split_type                   auto           \
+    auto_balance                 off            \
+    top_padding                  3             \
+    bottom_padding               3             \
+    left_padding                 3             \
+    right_padding                3             \
+    window_gap                   3             \
+    layout                       bsp            \
+    mouse_modifier               fn             \
+    mouse_action1                move           \
+    mouse_action2                resize         \
+    mouse_drop_action            swap
+
+# global settings
+# yabai -m config mouse_follows_focus          on
+# yabai -m config focus_follows_mouse          autofocus
+# yabai -m config window_placement             second_child 
+# yabai -m config window_topmost               on
+# yabai -m config window_shadow                float
+# yabai -m config window_opacity               on
+# yabai -m config window_opacity_duration      0
+# yabai -m config window_animation_duration    0.25
+# yabai -m config active_window_opacity        1
+# yabai -m config normal_window_opacity        1
+# yabai -m config window_border                on
+# yabai -m config window_border_width          2
+# yabai -m config active_window_border_color   0xffff8295
+# yabai -m config normal_window_border_color   0xff292929
+# # yabai -m config active_window_border_color   0xff81A1C1
+# # yabai -m config normal_window_border_color   0xff7A808C
+# yabai -m config insert_feedback_color        0xff61afef
+# yabai -m config split_ratio                  0.50
+# yabai -m config auto_balance                 off
+# yabai -m config mouse_modifier               fn
+# yabai -m config mouse_action1                move
+# yabai -m config mouse_action2                resize
+# yabai -m config mouse_drop_action            swap
+#
+# yabai -m config layout                       bsp
+# yabai -m config top_padding                  3
+# yabai -m config bottom_padding               3
+# yabai -m config left_padding                 3
+# yabai -m config right_padding                3
+# yabai -m config window_gap                   3
+
+# custom rule
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Finder$" layer=above manage=off sticky=on
+yabai -m rule --add app="^Stats$" manage=off
+yabai -m rule --add app="^App Store$" manage=off
+yabai -m rule --add app="^Cursor Pro$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Arc$" mouse_follows_focus=off
+yabai -m rule --add app="^Arc$" title="^Space [0-9]+" sticky=on layer=above manage=off
+
+echo "yabai configuration loaded.."
+
