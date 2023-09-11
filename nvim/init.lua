@@ -5,4 +5,4 @@ require("szelc.plugins.termicons")
 vim.cmd([[
 autocmd! FileType * set formatoptions-=cro
 ]])
-vim.cmd("colorscheme tundra")
+vim.cmd("colorscheme nordic")

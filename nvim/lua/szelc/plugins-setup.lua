@@ -89,16 +89,27 @@ require("lazy").setup({
 	},
 	-- appearance
 	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("szelc.plugins.colorscheme.nordic")
+		end,
+	},
+	{
+		"stevearc/dressing.nvim",
+		config = function()
+			require("szelc.plugins.dressing")
+		end,
+		event = "VeryLazy",
+	},
+	{
 		"sam4llis/nvim-tundra",
 		lazy = false,
 		priority = 1000,
 		config = function()
 			require("szelc.plugins.colorscheme.tundra")
 		end,
-	},
-	{
-		"stevearc/dressing.nvim",
-		event = "VeryLazy",
 	},
 	-- {
 	-- 	"folke/tokyonight.nvim",
