@@ -17,7 +17,7 @@ local lsp_zero = require("lsp-zero")
 
 lsp_zero.on_attach(function(client, bufnr)
 	lsp_zero.default_keymaps({ buffer = bufnr, omit = { "<F4>" } })
-	vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp_zero.buf.code_action()<cr>", { buffer = true })
+	vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = true })
 end)
 
 lsp_zero.set_server_config({
@@ -29,22 +29,21 @@ lsp_zero.set_server_config({
 	end,
 })
 
-lsp_zero.skip_server_setup({ "rust_analyzer" })
-
-local rust_tools = require("rust-tools")
-
-rust_tools.setup({
-	inlay_hints = {
-		auto = false,
-	},
-})
-
 mason.setup()
 mason_null_ls.setup()
 mason_lspconfig.setup({
 	ensure_installed = {},
 	handlers = {
 		lsp_zero.default_setup,
+		rust_analyzer = lsp_zero.noop,
+	},
+})
+
+local rust_tools = require("rust-tools")
+
+rust_tools.setup({
+	inlay_hints = {
+		auto = false,
 	},
 })
 
