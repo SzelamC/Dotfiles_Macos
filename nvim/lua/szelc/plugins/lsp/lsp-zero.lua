@@ -3,32 +3,24 @@ if not mason_status then
 	return
 end
 
-local mason_lspconfg_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfg_status then
-	return
-end
-
 local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
 if not mason_null_ls_status then
 	return
 end
 
-mason.setup()
+local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status then
+	return
+end
 
-local lsp = require("lsp-zero").preset({})
-lsp.ensure_installed({
-	"tsserver",
-	"rust_analyzer",
-	"tailwindcss",
-	"pyright",
-})
+local lsp_zero = require("lsp-zero")
 
-lsp.on_attach(function(client, bufnr)
-	lsp.default_keymaps({ buffer = bufnr, omit = { "<F4>" } })
-	vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = true })
+lsp_zero.on_attach(function(client, bufnr)
+	lsp_zero.default_keymaps({ buffer = bufnr, omit = { "<F4>" } })
+	vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp_zero.buf.code_action()<cr>", { buffer = true })
 end)
 
-lsp.set_server_config({
+lsp_zero.set_server_config({
 	on_init = function(client)
 		if client.name == "tsserver" then
 			client.server_capabilities.documentFormattingRangeProvider = false
@@ -37,7 +29,7 @@ lsp.set_server_config({
 	end,
 })
 
-lsp.skip_server_setup({ "rust_analyzer" })
+lsp_zero.skip_server_setup({ "rust_analyzer" })
 
 local rust_tools = require("rust-tools")
 
@@ -47,7 +39,14 @@ rust_tools.setup({
 	},
 })
 
-lsp.setup()
+mason.setup()
+mason_null_ls.setup()
+mason_lspconfig.setup({
+	ensure_installed = {},
+	handlers = {
+		lsp_zero.default_setup,
+	},
+})
 
 local cmp_status, cmp = pcall(require, "cmp")
 if not cmp_status then

@@ -175,7 +175,7 @@ require("lazy").setup({
 	-- LSP stuff
 	{
 		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			-- LSP Support
@@ -187,7 +187,7 @@ require("lazy").setup({
 				},
 			}, -- Required
 			{
-				"jose-elias-alvarez/null-ls.nvim",
+				"neovim-stuff/null-ls.nvim",
 				event = { "BufReadPre", "BufNewFile" },
 			},
 			{
@@ -276,6 +276,7 @@ require("lazy").setup({
 		ft = {
 			"javascriptreact",
 			"typescriptreact",
+			"html",
 		},
 	},
 
