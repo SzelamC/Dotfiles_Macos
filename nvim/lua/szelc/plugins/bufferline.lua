@@ -22,15 +22,5 @@ bufferline.setup({
 			delay = 200,
 			reveal = { "close" },
 		},
-		-- highlights = require("catppuccin.groups.integrations.bufferline").get(),
-		-- highlights = {
-		--
-		-- 	buffer_selected = { italic = false },
-		-- 	diagnostic_selected = { italic = false },
-		-- 	hint_selected = { italic = false },
-		-- 	pick_selected = { italic = false },
-		-- 	pick_visible = { italic = false },
-		-- 	pick = { italic = false },
-		-- },
 	},
 })
