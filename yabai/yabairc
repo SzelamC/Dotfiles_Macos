@@ -5,30 +5,22 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
 yabai -m config                                 \
-    debug_output                 off             \
-    mouse_follows_focus          on             \
-    focus_follows_mouse          autofocus      \
+    debug_output                 off            \
+    mouse_follows_focus          off            \
+    focus_follows_mouse          off            \
     window_origin_display        default        \
     window_placement             second_child   \
-    window_topmost               off            \
-    window_animation_duration    0.3           \
-    window_animation_frame_rate  120            \
+    window_animation_duration    0.15           \
+    window_animation_frame_rate  60             \
     insert_feedback_color        0xffd75f5f     \
-    active_window_border_color   0xff4CFFF9   \
-    normal_window_border_color   0xff555555     \
-    window_border_width          2              \
-    window_border_radius         12             \
-    window_border_blur           off            \
-    window_border_hidpi          on             \
-    window_border                on            \
     split_ratio                  0.50           \
     split_type                   auto           \
     auto_balance                 off            \
-    top_padding                  3             \
-    bottom_padding               3             \
-    left_padding                 3             \
-    right_padding                3             \
-    window_gap                   3             \
+    top_padding                  06             \
+    bottom_padding               06             \
+    left_padding                 06             \
+    right_padding                06             \
+    window_gap                   06             \
     layout                       bsp            \
     mouse_modifier               fn             \
     mouse_action1                move           \
@@ -69,13 +61,14 @@ yabai -m config                                 \
 
 # custom rule
 yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Finder$" layer=above manage=off sticky=on
+yabai -m rule --add app="^Finder$"  manage=off
 yabai -m rule --add app="^Stats$" manage=off
 yabai -m rule --add app="^App Store$" manage=off
 yabai -m rule --add app="^Cursor Pro$" manage=off
 yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^Arc$" mouse_follows_focus=off
-yabai -m rule --add app="^Arc$" title="^Space [0-9]+" sticky=on layer=above manage=off
+yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^zoom.us$" mouse_follows_focus=on
 
-echo "yabai configuration loaded.."
+"yabai configuration loaded.."
 
