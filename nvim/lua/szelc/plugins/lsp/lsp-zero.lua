@@ -18,7 +18,7 @@ local lsp_zero = require("lsp-zero")
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr, omit = { "<F4>" } })
     vim.keymap.set("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", { buffer = true })
-    -- vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
+    vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 end)
 
 lsp_zero.set_server_config({
