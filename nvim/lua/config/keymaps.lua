@@ -26,3 +26,7 @@ vim.keymap.set("n", "<leader>s", ":split<CR>", opts)
 vim.keymap.set("n", "qq", "q", opts)
 
 vim.keymap.del("n", "<leader>l")
+vim.keymap.del("n", "<leader>gg")
+vim.keymap.del("n", "<leader>gG")
+vim.keymap.del("n", "<leader>w-")
+vim.keymap.del("n", "<leader>w|")

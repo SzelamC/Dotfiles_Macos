@@ -33,13 +33,16 @@ return {
             -- change a keymap
             -- keys[#keys + 1] = { "K", "<cmd>echo 'hello'<cr>" }
             -- disable a keymap
-            -- keys[#keys + 1] = { "K", false }
+            keys[#keys + 1] = { "<leader>ca", false }
+            keys[#keys + 1] = { "<leader>cA", false }
             -- add a keymap
             keys[#keys + 1] = { "<leader>lf", vim.lsp.buf.format }
+            keys[#keys + 1] = { "<leader>la", vim.lsp.buf.code_action }
             keys[#keys + 1] = { "<leader>la", vim.lsp.buf.code_action }
             keys[#keys + 1] = { "gl", vim.diagnostic.open_float }
         end,
         opts = {
+            autoformat = false,
             diagnostics = {
                 virtual_text = {
                     prefix = "  ",
