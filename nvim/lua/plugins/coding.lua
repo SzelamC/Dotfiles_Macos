@@ -6,7 +6,7 @@ return {
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
-        config = function()
+        opts = function()
             local cmp_status, cmp = pcall(require, "cmp")
             local defaults = require("cmp.config.default")()
             if not cmp_status then
@@ -41,8 +41,7 @@ return {
                     { "│", hl_name },
                 }
             end
-
-            cmp.setup({
+            return {
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
@@ -96,7 +95,7 @@ return {
                     },
                 },
                 sorting = defaults.sorting,
-            })
+            }
         end,
         dependencies = {
             {

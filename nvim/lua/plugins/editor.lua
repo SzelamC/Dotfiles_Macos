@@ -260,15 +260,12 @@ return {
             { "H", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
             { "L", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
         },
-        config = function()
+        opts = function()
             local bufferline = require("bufferline")
-            bufferline.setup({
+            return {
                 options = {
                     mode = "buffers",
                     style_preset = bufferline.style_preset.no_italic,
-                    close_command = "bdelete %d",
-                    right_mouse_command = "bdelete %d",
-                    left_mouse_command = "buffer %d",
                     diagnostics = "nvim_lsp",
                     offsets = {
                         {
@@ -286,7 +283,7 @@ return {
                         reveal = { "close" },
                     },
                 },
-            })
+            }
         end,
     },
     {
@@ -317,5 +314,37 @@ return {
                 },
             }
         end,
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
+            auto_install = false,
+            ensure_installed = {
+                "javascript",
+                "typescript",
+                "tsx",
+                "yaml",
+                "html",
+                "css",
+                "markdown",
+                "svelte",
+                "graphql",
+                "bash",
+                "lua",
+                "vim",
+                "dockerfile",
+                "gitignore",
+            },
+            autotag = { enable = true },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "gnn", -- set to `false` to disable one of the mappings
+                    node_incremental = "grn",
+                    scope_incremental = "grc",
+                    node_decremental = "grm",
+                },
+            },
+        },
     },
 }

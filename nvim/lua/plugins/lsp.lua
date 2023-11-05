@@ -42,12 +42,10 @@ return {
             keys[#keys + 1] = { "gl", vim.diagnostic.open_float }
         end,
         opts = {
-            autoformat = false,
             diagnostics = {
                 virtual_text = {
                     prefix = "  ",
                 },
-                float = true,
             },
         },
     },
