@@ -10,6 +10,6 @@ vim.opt.listchars = {
 vim.opt.shiftwidth = 4
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
--- vim.opt.pumblend = 50
+vim.opt.pumblend = 0
 
 vim.g.autoformat = false

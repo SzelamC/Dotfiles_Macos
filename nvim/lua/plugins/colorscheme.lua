@@ -68,7 +68,7 @@ return {
                 --- @usage 'main'|'moon'|'dawn'
                 dark_variant = "main",
                 disable_background = true,
-                disable_float_background = false,
+                disable_float_background = true,
                 disable_italics = true,
                 highlight_groups = {
                     -- Blend colours against the "base" background
@@ -86,7 +86,6 @@ return {
                     TelescopeResultsNormal = { fg = "subtle", bg = "none" },
                     TelescopeSelection = { fg = "text", bg = "base" },
                     TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
-                    Pmenu = { bg = "base" },
                 },
             }
         end,
