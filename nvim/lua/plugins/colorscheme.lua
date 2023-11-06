@@ -64,9 +64,9 @@ return {
             vim.opt.statusline = " %f %m %= %l:%c ♥ "
             return {
                 --- @usage 'auto'|'main'|'moon'|'dawn'
-                variant = "main",
+                variant = "moon",
                 --- @usage 'main'|'moon'|'dawn'
-                dark_variant = "main",
+                dark_variant = "moon",
                 disable_background = true,
                 disable_float_background = true,
                 disable_italics = true,

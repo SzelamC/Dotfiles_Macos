@@ -11,5 +11,5 @@ vim.opt.shiftwidth = 4
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.pumblend = 0
-
+vim.opt.formatoptions = "jcrqlnt"
 vim.g.autoformat = false
