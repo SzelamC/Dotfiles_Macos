@@ -6,17 +6,7 @@ return {
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
-        -- opts = function()
-        --     local cmp = require("cmp")
-        --     return {
-        --         mapping = cmp.mapping.preset.insert({
-        --             ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-        --             ["<Tab>"] = cmp.mapping.select_next_item(),
-        --         }),
-        --     }
-        -- end,
         opts = function()
-            vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
             local cmp = require("cmp")
             local defaults = require("cmp.config.default")()
             return {

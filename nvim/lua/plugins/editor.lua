@@ -286,15 +286,6 @@ return {
         end,
     },
     {
-        "lukas-reineke/indent-blankline.nvim",
-        opts = {
-            indent = {
-                char = "│",
-                tab_char = "",
-            },
-        },
-    },
-    {
         "nvim-telescope/telescope.nvim",
         keys = {
             { "<leader>fs", "<cmd>Telescope live_grep<cr>",   desc = "Telescope live grep" },
