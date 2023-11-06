@@ -6,87 +6,59 @@ return {
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
+        -- opts = function()
+        --     local cmp = require("cmp")
+        --     return {
+        --         mapping = cmp.mapping.preset.insert({
+        --             ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+        --             ["<Tab>"] = cmp.mapping.select_next_item(),
+        --         }),
+        --     }
+        -- end,
         opts = function()
-            local cmp_status, cmp = pcall(require, "cmp")
+            vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
+            local cmp = require("cmp")
             local defaults = require("cmp.config.default")()
-            if not cmp_status then
-                return
-            end
-
-            local luasnip_status, luasnip = pcall(require, "luasnip")
-            if not luasnip_status then
-                return
-            end
-
-            local lspkind_status, lspkind = pcall(require, "lspkind")
-            if not lspkind_status then
-                return
-            end
-
-            require("luasnip/loaders/from_vscode")
-
-            vim.opt.completeopt = "menu,menuone,noselect"
-
-            local cmp_style = "default"
-
-            local function border(hl_name)
-                return {
-                    { "╭", hl_name },
-                    { "─", hl_name },
-                    { "╮", hl_name },
-                    { "│", hl_name },
-                    { "╯", hl_name },
-                    { "─", hl_name },
-                    { "╰", hl_name },
-                    { "│", hl_name },
-                }
-            end
             return {
+                completion = {
+                    completeopt = "menu,menuone,noinsert",
+                },
                 snippet = {
                     expand = function(args)
-                        luasnip.lsp_expand(args.body)
+                        require("luasnip").lsp_expand(args.body)
                     end,
                 },
-                completion = {
-                    completeopt = "menu,menuone",
-                },
-                window = {
-                    completion = {
-                        side_padding = (cmp_style ~= "atom" and cmp_style ~= "atom_colored") and 1 or 0,
-                        winhighlight = "Normal:CmpPmenu,CursorLine:Visual,Search:PmenuSel",
-                        scrollbar = true,
-                        border = border("CmpBorder"),
-                    },
-                    documentation = {
-                        border = border("CmpDocBorder"),
-                        winhighlight = "Normal:CmpDoc",
-                    },
-                },
                 mapping = cmp.mapping.preset.insert({
-                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-                    ["<Tab>"] = cmp.mapping.select_next_item(),
-                    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+                    ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                    ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+                    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                    ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
-                    ["<C-space>"] = cmp.mapping.complete(),
+                    ["<C-Space>"] = cmp.mapping.complete(),
+                    ["<C-e>"] = cmp.mapping.abort(),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                    ["<S-CR>"] = cmp.mapping.confirm({
+                        behavior = cmp.ConfirmBehavior.Replace,
+                        select = true,
+                    }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                    ["<C-CR>"] = function(fallback)
+                        cmp.abort()
+                        fallback()
+                    end,
                 }),
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
                     { name = "path" },
+                }, {
                     { name = "buffer" },
                 }),
                 formatting = {
-                    fields = { "kind", "abbr", "menu" },
-                    format = function(entry, vim_item)
-                        local kind = lspkind.cmp_format({
-                            mode = "symbol_text",
-                            maxwidth = 50,
-                        })(entry, vim_item)
-                        local strings = vim.split(kind.kind, "%s", { trimempty = true })
-                        kind.kind = " " .. (strings[1] or "") .. " "
-                        kind.menu = "    (" .. (strings[2] or "") .. ")"
-                        return kind
+                    format = function(_, item)
+                        local icons = require("lazyvim.config").icons.kinds
+                        if icons[item.kind] then
+                            item.kind = icons[item.kind] .. item.kind
+                        end
+                        return item
                     end,
                 },
                 experimental = {
@@ -97,32 +69,5 @@ return {
                 sorting = defaults.sorting,
             }
         end,
-        dependencies = {
-            {
-                "L3MON4D3/LuaSnip",
-                dependencies = {
-                    "rafamadriz/friendly-snippets",
-                },
-            },
-            {
-                "windwp/nvim-autopairs",
-                opts = {
-                    fast_wrap = {},
-                    disable_filetype = { "TelescopePrompt", "vim" },
-                },
-                config = function(_, opts)
-                    require("nvim-autopairs").setup(opts)
-                    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-                    require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-                end,
-            },
-            {
-                "saadparwaiz1/cmp_luasnip",
-                "hrsh7th/cmp-nvim-lua",
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-buffer",
-                "hrsh7th/cmp-path",
-            },
-        },
     },
 }

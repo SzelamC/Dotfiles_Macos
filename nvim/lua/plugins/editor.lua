@@ -6,11 +6,10 @@ return {
         keys = {
             { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Nvim Tree Toggle" },
         },
-        config = function()
+        opts = function()
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
-
-            require("nvim-tree").setup({
+            return {
                 -- BEGIN_DEFAULT_OPTS
                 auto_reload_on_write = true,
                 disable_netrw = true,
@@ -250,7 +249,7 @@ return {
                         watcher = false,
                     },
                 },
-            }) -- END_DEFAULT_OPTS   }
+            }
         end,
     },
     {
@@ -288,8 +287,12 @@ return {
     },
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = { "BufReadPost", "BufNewFile" },
-        config = true,
+        opts = {
+            indent = {
+                char = "│",
+                tab_char = "",
+            },
+        },
     },
     {
         "nvim-telescope/telescope.nvim",
@@ -346,5 +349,10 @@ return {
                 },
             },
         },
+    },
+    {
+        "nvimdev/hlsearch.nvim",
+        event = "BufRead",
+        config = true,
     },
 }

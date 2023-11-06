@@ -4,9 +4,10 @@
 vim.opt.guicursor = ""
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "200"
-vim.opt.fillchars = {
-    eob = " ",
+vim.opt.listchars = {
+    trail = " ",
 }
+vim.opt.shiftwidth = 4
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 
