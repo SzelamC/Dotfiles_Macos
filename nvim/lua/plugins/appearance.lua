@@ -8,6 +8,8 @@ return {
     },
     {
         "stevearc/dressing.nvim",
+        init = function() end,
+        lazy = false,
         opts = {
             input = {
                 -- Set to false to disable the vim.ui.input implementation
@@ -60,21 +62,20 @@ return {
                     },
                 },
             },
-            event = "VeryLazy",
         },
-        {
-            "nvim-lualine/lualine.nvim",
-            event = "VeryLazy",
-            opts = {
-                options = {
-                    theme = "rose-pine",
-                    component_separators = { left = "", right = "" },
-                    section_separators = { left = "", right = "" },
-                },
-                sections = {
-                    lualine_a = { "mode" },
-                    lualine_b = { "branch", "diff", "diagnostics" },
-                },
+    },
+    {
+        "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
+        opts = {
+            options = {
+                theme = "rose-pine",
+                component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
+            },
+            sections = {
+                lualine_a = { "mode" },
+                lualine_b = { "branch", "diff", "diagnostics" },
             },
         },
     },

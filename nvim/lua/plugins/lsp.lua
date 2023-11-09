@@ -1,7 +1,6 @@
 return {
     {
-        "neovim-stuff/null-ls.nvim",
-        event = { "BufReadPre", "BufNewFile" },
+        "nvimtools/none-ls.nvim",
         opts = function()
             local null_ls = require("null-ls")
             -- for conciseness
@@ -12,12 +11,12 @@ return {
                 sources = {
                     --  to disable file types use
                     --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-                    formatting.prettierd, -- js/ts formatter
-                    formatting.autopep8,
-                    formatting.rustfmt,
+                    -- formatting.prettierd, -- js/ts formatter
+                    -- formatting.autopep8,
+                    -- formatting.rustfmt,
                     formatting.stylua, -- lua formatter
-                    formatting.yamlfmt,
-                    diagnostics.yamllint,
+                    -- formatting.yamlfmt,
+                    -- diagnostics.yamllint,
                 },
             }
         end,
@@ -29,13 +28,12 @@ return {
             -- change a keymap
             -- keys[#keys + 1] = { "K", "<cmd>echo 'hello'<cr>" }
             -- disable a keymap
-            keys[#keys + 1] = { "<leader>ca", false }
-            keys[#keys + 1] = { "<leader>cA", false }
+            -- keys[#keys + 1] = { "<leader>ca", false }
+            -- keys[#keys + 1] = { "<leader>cA", false }
             -- add a keymap
-            keys[#keys + 1] = { "<leader>lf", vim.lsp.buf.format }
-            keys[#keys + 1] = { "<leader>la", vim.lsp.buf.code_action }
-            keys[#keys + 1] = { "<leader>la", vim.lsp.buf.code_action }
-            keys[#keys + 1] = { "gl", vim.diagnostic.open_float }
+            keys[#keys + 1] = { "<leader>lf", ":lua vim.lsp.buf.format({ timeout_ms = 5000 })<CR>", desc = "Format" }
+            keys[#keys + 1] = { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" }
+            keys[#keys + 1] = { "gl", vim.diagnostic.open_float, desc = "Hover Document" }
         end,
         opts = {
             diagnostics = {
@@ -43,6 +41,7 @@ return {
                     prefix = "  ",
                 },
             },
+            server = { eslint = {} },
             setup = {
                 eslint = function()
                     require("lazyvim.util").lsp.on_attach(function(client)
@@ -54,6 +53,7 @@ return {
                     end)
                 end,
             },
+            format = { timeout_ms = 5000 },
         },
     },
     {

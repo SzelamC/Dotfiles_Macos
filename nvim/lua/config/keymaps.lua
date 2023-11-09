@@ -1,6 +1,9 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+-- local opts = function(desc)
+--     return { silent = true, desc = desc }
+-- end
 local opts = { silent = true }
 vim.keymap.set("i", "jk", "<ESC>", opts)
 vim.keymap.set("n", "<leader>h", ":nohl<CR>", opts)
@@ -22,8 +25,7 @@ vim.keymap.set("n", "N", "Nzzzv", opts)
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts)
 vim.keymap.set("n", "<leader>y", '"+y', opts)
 vim.keymap.set("v", "<leader>y", '"+y', opts)
-vim.keymap.set("n", "<leader>vs", ":vsplit<CR>", opts)
-vim.keymap.set("n", "<leader>s", ":split<CR>", opts)
+vim.keymap.set("n", "q", "<nop>", opts)
 vim.keymap.set("n", "qq", "q", opts)
 
 vim.keymap.del("n", "<leader>l")
