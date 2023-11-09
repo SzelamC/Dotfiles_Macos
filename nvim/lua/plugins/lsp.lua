@@ -11,7 +11,7 @@ return {
                 sources = {
                     --  to disable file types use
                     --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-                    -- formatting.prettierd, -- js/ts formatter
+                    formatting.prettierd, -- js/ts formatter
                     -- formatting.autopep8,
                     -- formatting.rustfmt,
                     formatting.stylua, -- lua formatter
@@ -41,19 +41,18 @@ return {
                     prefix = "  ",
                 },
             },
-            server = { eslint = {} },
+            servers = { eslint = {} },
             setup = {
                 eslint = function()
                     require("lazyvim.util").lsp.on_attach(function(client)
                         if client.name == "eslint" then
-                            client.server_capabilities.documentFormattingProvider = false
+                            client.server_capabilities.documentFormattingProvider = true
                         elseif client.name == "tsserver" then
                             client.server_capabilities.documentFormattingProvider = false
                         end
                     end)
                 end,
             },
-            format = { timeout_ms = 5000 },
         },
     },
     {
