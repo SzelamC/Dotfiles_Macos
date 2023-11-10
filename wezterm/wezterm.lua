@@ -23,14 +23,14 @@ if wezterm.config_builder then
 end
 
 config = {
-    initial_rows = 1000,
-    initial_cols = 1000,
+    initial_rows = 500,
+    initial_cols = 500,
     adjust_window_size_when_changing_font_size = false,
 
     enable_tab_bar = true,
     tab_bar_at_bottom = true,
     show_new_tab_button_in_tab_bar = false,
-    color_scheme = "rose-pine",
+    color_scheme = "Rosé Pine (Gogh)",
 
     window_frame = {
         -- The font used in the tab bar.
@@ -78,9 +78,13 @@ config = {
 
     font = wezterm.font_with_fallback({
         {
-            family = "IosevkaTerm Nerd Font Mono",
-            weight = "Regular",
-            harfbuzz_features = { "calt=1", "clig=0", "liga=0" },
+            -- family = "IosevkaTerm Nerd Font",
+            family = "Monaspace Neon",
+            weight = "Light",
+            harfbuzz_features = {
+                "calt=1",
+                "dlig=1",
+            },
         },
         "termicons",
     }),
