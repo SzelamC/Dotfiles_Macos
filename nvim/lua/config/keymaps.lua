@@ -4,6 +4,8 @@
 -- local opts = function(desc)
 --     return { silent = true, desc = desc }
 -- end
+local Util = require("lazyvim.util")
+
 local opts = { silent = true }
 vim.keymap.set("i", "jk", "<ESC>", opts)
 vim.keymap.set("n", "<leader>h", ":nohl<CR>", opts)
@@ -27,9 +29,14 @@ vim.keymap.set("n", "<leader>y", '"+y', opts)
 vim.keymap.set("v", "<leader>y", '"+y', opts)
 vim.keymap.set("n", "q", "<nop>", opts)
 vim.keymap.set("n", "qq", "q", opts)
+vim.keymap.set({ "n", "v" }, "<leader>lf", function()
+  Util.format({ force = true })
+end, { desc = "Format" })
 
 vim.keymap.del("n", "<leader>l")
 vim.keymap.del("n", "<leader>gg")
 vim.keymap.del("n", "<leader>gG")
 vim.keymap.del("n", "<leader>w-")
 vim.keymap.del("n", "<leader>w|")
+vim.keymap.del({ "n", "v" }, "<leader>cf")
+vim.keymap.del({ "n", "v" }, "<leader>cF")

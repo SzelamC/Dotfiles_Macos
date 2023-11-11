@@ -8,5 +8,8 @@ vim.opt.shiftwidth = 4
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.pumblend = 0
+vim.opt.listchars = {
+  tab = "  ",
+}
 
 vim.g.autoformat = false
