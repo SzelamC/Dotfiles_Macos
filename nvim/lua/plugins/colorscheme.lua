@@ -29,6 +29,8 @@ return {
           TelescopeResultsNormal = { fg = "subtle", bg = "none" },
           TelescopeSelection = { fg = "text", bg = "base" },
           TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+          Comment = { italic = true },
+          ["@attribute"] = { fg = "iris" },
         },
       }
     end,
