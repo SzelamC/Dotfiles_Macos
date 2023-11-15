@@ -9,8 +9,6 @@ local Util = require("lazyvim.util")
 local opts = { silent = true }
 vim.keymap.set("i", "jk", "<ESC>", opts)
 vim.keymap.set("n", "<leader>h", ":nohl<CR>", opts)
-vim.keymap.set("n", "x", '"_x', opts)
-vim.keymap.set("v", "d", '"_d', opts)
 vim.keymap.set("n", "<C-s>", ":w<CR>", opts)
 vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
 vim.keymap.set("n", "<C-j>", "<C-w>j", opts)

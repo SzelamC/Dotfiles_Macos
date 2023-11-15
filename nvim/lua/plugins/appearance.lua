@@ -96,12 +96,14 @@ return {
         },
 
         sections = {
-          lualine_a = { {
-            "mode",
-            fmt = function(s)
-              return mode_map[s]
-            end,
-          } },
+          lualine_a = {
+            {
+              "mode",
+              fmt = function(s)
+                return mode_map[s]
+              end,
+            },
+          },
         },
       }
     end,

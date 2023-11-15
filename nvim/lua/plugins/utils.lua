@@ -44,4 +44,8 @@ return {
       end, 0)
     end,
   },
+  {
+    "gbprod/cutlass.nvim",
+    config = true,
+  },
 }
