@@ -1,4 +1,12 @@
+local colorscheme = "poimandres"
 return {
+  {
+    "LazyVim/LazyVim",
+    import = "lazyvim.plugins",
+    opts = {
+      colorscheme = colorscheme,
+    },
+  },
   {
     "rose-pine/neovim",
     name = "rose-pine",
@@ -34,5 +42,17 @@ return {
         },
       }
     end,
+  },
+  {
+    "akinsho/horizon.nvim",
+  },
+  {
+    "olivercederborg/poimandres.nvim",
+    opts = {
+      dim_nc_background = true, -- dim 'non-current' window backgrounds
+      disable_background = true, -- disable background
+      disable_float_background = true, -- disable background for floats
+      disable_italics = true, -- disable italics
+    },
   },
 }

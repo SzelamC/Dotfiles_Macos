@@ -35,7 +35,7 @@ return {
               file = true,
               folder = true,
               folder_arrow = true,
-              git = false,
+              git = true,
             },
             git_placement = "after",
             glyphs = {

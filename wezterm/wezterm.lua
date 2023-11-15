@@ -30,8 +30,10 @@ config = {
 	enable_tab_bar = true,
 	tab_bar_at_bottom = true,
 	show_new_tab_button_in_tab_bar = false,
-	color_scheme = "Rosé Pine (base16)",
+	-- color_scheme = "Rosé Pine (base16)",
 
+	-- color_scheme = "One Dark (Gogh)",
+	color_scheme = "Poimandres",
 	window_frame = {
 		-- The font used in the tab bar.
 		-- Roboto Bold is the default; this font is bundled
@@ -78,9 +80,10 @@ config = {
 
 	font = wezterm.font_with_fallback({
 		{
-			-- family = "IosevkaTerm Nerd Font",
+			-- family = "IosevkaTerm Nerd Font Mono",
 			family = "Monaspace Radon",
 			-- family = "Monaspace Krypton",
+			-- family = "Monaspace Neon",
 			weight = "Regular",
 			harfbuzz_features = {
 				"calt=0",
@@ -94,7 +97,7 @@ config = {
 	line_height = 1.4,
 	exit_behavior = "Close",
 	window_close_confirmation = "NeverPrompt",
-	window_background_opacity = 0.9,
+	window_background_opacity = 0.75,
 	macos_window_background_blur = 0,
 
 	-- disable_default_key_bindings = true
