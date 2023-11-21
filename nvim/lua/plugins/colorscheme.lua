@@ -48,11 +48,13 @@ return {
   },
   {
     "olivercederborg/poimandres.nvim",
-    opts = {
-      dim_nc_background = true, -- dim 'non-current' window backgrounds
-      disable_background = true, -- disable background
-      disable_float_background = true, -- disable background for floats
-      disable_italics = true, -- disable italics
-    },
+    opts = function()
+      return {
+        dim_nc_background = true, -- dim 'non-current' window backgrounds
+        disable_background = true, -- disable background
+        disable_float_background = false, -- disable background for floats
+        disable_italics = true, -- disable italics
+      }
+    end,
   },
 }
