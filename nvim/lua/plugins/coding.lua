@@ -2,6 +2,10 @@ return {
   {
     "onsails/lspkind.nvim",
     event = "VeryLazy",
+    config = function()
+      local icons = require("lazyvim.config").icons.kinds
+      require("lspkind").presets["default"] = icons
+    end,
   },
   {
     "windwp/nvim-autopairs",
@@ -35,28 +39,25 @@ return {
         ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
       })
 
-      local function border(hl_name)
-        return {
-          { "╭", hl_name },
-          { "─", hl_name },
-          { "╮", hl_name },
-          { "│", hl_name },
-          { "╯", hl_name },
-          { "─", hl_name },
-          { "╰", hl_name },
-          { "│", hl_name },
-        }
-      end
+      opts.formatting = {
+        fields = { "abbr", "kind", "menu" },
+        format = function(entry, vim_item)
+          local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+          local strings = vim.split(kind.kind, "%s", { trimempty = true })
+          kind.kind = " " .. (strings[1] or "") .. " "
+          kind.menu = strings[2] or ""
+
+          return kind
+        end,
+      }
 
       opts.window = {
         completion = {
-          side_padding = 1,
+          -- col_offset = -3,
           winhighlight = "Normal:CmpPmenu,CursorLine:Visual,Search:PmenuSel",
           scrollbar = true,
-          border = border("CmpBorder"),
         },
         documentation = {
-          border = border("CmpDocBorder"),
           winhighlight = "Normal:CmpDoc",
         },
       }
