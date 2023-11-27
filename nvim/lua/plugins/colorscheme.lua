@@ -1,4 +1,4 @@
-local colorscheme = "poimandres"
+local colorscheme = "catppuccin"
 return {
   {
     "LazyVim/LazyVim",
@@ -56,5 +56,59 @@ return {
         disable_italics = true, -- disable italics
       }
     end,
+  },
+  {
+    "Shatur/neovim-ayu",
+    config = function()
+      require("ayu").setup({
+        mirage = true,
+      })
+    end,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    opts = {
+      transparent_background = true,
+      color_overrides = {
+        all = {
+          -- rosewater = "#efc9c2",
+          -- flamingo = "#ebb2b2",
+          pink = "#FCA7EA",
+          mauve = "#C099FF",
+          red = "#FF757F",
+          -- maroon = "#FF007C",
+          peach = "#FFA759",
+          -- yellow = "#FFFAC2",
+          green = "#BAEE9E",
+          -- teal = "#78cec1",
+          -- sky = "#91d7e3",
+          sapphire = "#5CCFE6",
+          blue = "#82AAFF",
+          -- lavender = "#a0a8f6",
+          -- text = "#b5c1f1",
+          -- subtext1 = "#a6b0d8",
+          -- subtext0 = "#959ec2",
+          -- overlay2 = "#848cad",
+          -- overlay1 = "#717997",
+          -- overlay0 = "#63677f",
+          -- surface2 = "#505469",
+          -- surface1 = "#3e4255",
+          -- surface0 = "#2c2f40",
+          -- base = "#1a1c2a",
+          -- mantle = "#141620",
+          -- crust = "#0e0f16",
+        },
+      },
+      integrations = {
+        telescope = {
+          enabled = true,
+          style = "nvchad",
+        },
+        noice = true,
+        which_key = true,
+        mason = true,
+      },
+    },
   },
 }

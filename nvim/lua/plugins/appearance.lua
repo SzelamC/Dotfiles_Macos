@@ -90,7 +90,7 @@ return {
 
       return {
         options = {
-          theme = "rose-pine",
+          theme = "catppuccin",
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
         },
@@ -105,6 +105,14 @@ return {
             },
           },
         },
+      }
+    end,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    opts = function()
+      return {
+        highlights = require("catppuccin.groups.integrations.bufferline").get(),
       }
     end,
   },
