@@ -108,12 +108,4 @@ return {
       }
     end,
   },
-  {
-    "akinsho/bufferline.nvim",
-    opts = function()
-      return {
-        highlights = require("catppuccin.groups.integrations.bufferline").get(),
-      }
-    end,
-  },
 }

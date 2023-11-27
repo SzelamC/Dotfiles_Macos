@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin"
+local colorscheme = "rose-pine"
 return {
   {
     "LazyVim/LazyVim",
@@ -74,17 +74,17 @@ return {
         all = {
           -- rosewater = "#efc9c2",
           -- flamingo = "#ebb2b2",
-          pink = "#FCA7EA",
-          mauve = "#C099FF",
-          red = "#FF757F",
+          -- pink = "#FCA7EA",
+          -- mauve = "#C099FF",
+          -- red = "#FF757F",
           -- maroon = "#FF007C",
-          peach = "#FFA759",
+          -- peach = "#FFA759",
           -- yellow = "#FFFAC2",
           green = "#BAEE9E",
           -- teal = "#78cec1",
           -- sky = "#91d7e3",
-          sapphire = "#5CCFE6",
-          blue = "#82AAFF",
+          -- sapphire = "#5CCFE6",
+          -- blue = "#82AAFF",
           -- lavender = "#a0a8f6",
           -- text = "#b5c1f1",
           -- subtext1 = "#a6b0d8",
@@ -111,4 +111,5 @@ return {
       },
     },
   },
+  {},
 }
