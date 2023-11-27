@@ -11,8 +11,6 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     opts = function()
-      vim.opt.laststatus = 3 -- Or 3 for global statusline
-      vim.opt.statusline = " %f %m %= %l:%c ♥ "
       return {
         --- @usage 'auto'|'main'|'moon'|'dawn'
         variant = "moon",
@@ -23,8 +21,8 @@ return {
         disable_italics = true,
         highlight_groups = {
           -- Blend colours against the "base" background
-          CursorLine = { bg = "foam", blend = 10 },
-          StatusLine = { fg = "love", bg = "love", blend = 10 },
+          CursorLine = { bg = "foam", blend = 20 },
+          StatusLine = { fg = "love", bg = "love" },
           StatusLineNC = { fg = "subtle", bg = "surface" },
           TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
           TelescopeTitle = { fg = "base", bg = "love" },
