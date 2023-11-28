@@ -21,7 +21,7 @@ return {
         disable_italics = true,
         highlight_groups = {
           -- Blend colours against the "base" background
-          CursorLine = { bg = "foam", blend = 20 },
+          CursorLine = { bg = "foam", blend = 10 },
           StatusLine = { fg = "love", bg = "love" },
           StatusLineNC = { fg = "subtle", bg = "surface" },
           TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
