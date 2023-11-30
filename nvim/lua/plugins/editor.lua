@@ -41,6 +41,7 @@ return {
             glyphs = {
               default = "󰈚",
               symlink = "",
+              bookmark = "",
               folder = {
                 default = "",
                 empty = "",

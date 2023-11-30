@@ -1,4 +1,4 @@
-local colorscheme = "rose-pine"
+local colorscheme = "catppuccin"
 return {
   {
     "LazyVim/LazyVim",
@@ -109,5 +109,4 @@ return {
       },
     },
   },
-  {},
 }
