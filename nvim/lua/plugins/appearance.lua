@@ -1,5 +1,28 @@
 return {
   {
+    "folke/noice.nvim",
+    opts = {
+      messages = {
+        enabled = false,
+      },
+      notify = {
+        enabled = false,
+      },
+      views = {
+        cmdline_popup = {
+          border = {
+            style = "none",
+            padding = { 1, 2 },
+          },
+          filter_options = {},
+          win_options = {
+            winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+          },
+        },
+      },
+    },
+  },
+  {
     "mskelton/termicons.nvim",
     config = true,
     dependencies = {
@@ -90,12 +113,19 @@ return {
 
       return {
         options = {
-          theme = "rose-pine",
+          theme = "onedark",
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
         },
 
         sections = {
+          lualine_x = {
+            {
+              require("noice").api.statusline.mode.get,
+              cond = require("noice").api.statusline.mode.has,
+              color = { fg = "#ff9e64" },
+            },
+          },
           lualine_a = {
             {
               "mode",
