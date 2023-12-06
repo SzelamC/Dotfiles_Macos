@@ -1,7 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 local act = wezterm.action
-local mux = wezterm.mux
 -- This table will hold the configuration.
 local config = {}
 
@@ -33,7 +32,8 @@ config = {
 	-- color_scheme = "Rosé Pine (base16)",
 
 	-- color_scheme = "One Dark (Gogh)",
-	color_scheme = "Poimandres",
+	-- color_scheme = "Poimandres",
+	color_scheme = "Catppuccin Mocha",
 	window_frame = {
 		-- The font used in the tab bar.
 		-- Roboto Bold is the default; this font is bundled
@@ -41,11 +41,11 @@ config = {
 		-- Whatever font is selected here, it will have the
 		-- main font setting appended to it to pick up any
 		-- fallback fonts you may have used there.
-		font = wezterm.font({ family = "Monaspace Radon", weight = "Regular" }),
+		font = wezterm.font({ family = "Iosevka Custom", weight = "Regular" }),
 
 		-- The size of the font in the tab bar.
 		-- Default to 10. on Windows but 12.0 on other systems
-		font_size = 14.0,
+		font_size = 12.0,
 
 		-- The overall background color of the tab bar when
 		-- the window is focused
@@ -80,25 +80,20 @@ config = {
 
 	font = wezterm.font_with_fallback({
 		{
-			-- family = "IosevkaTerm Nerd Font Mono",
-			family = "Monaspace Radon",
-			-- family = "Monaspace Krypton",
-			-- family = "Monaspace Neon",
-			weight = "Regular",
-			harfbuzz_features = {
-				"calt=0",
-				"dlig=0",
-			},
+			family = "Iosevka Custom",
+			weight = "Book",
+			-- stretch = "SemiCondensed",
+			harfbuzz_features = { "calt=0", "dlig=0" },
 		},
 		"termicons",
 	}),
 
 	font_size = 16,
-	line_height = 1.4,
+	line_height = 1.5,
 	exit_behavior = "Close",
 	window_close_confirmation = "NeverPrompt",
-	window_background_opacity = 0.75,
-	macos_window_background_blur = 0,
+	window_background_opacity = 0.7,
+	macos_window_background_blur = 30,
 
 	-- disable_default_key_bindings = true
 
@@ -133,7 +128,4 @@ config = {
 
 	-- and finally, return the configuration to wezterm
 }
-
-local x = true
-
 return config
