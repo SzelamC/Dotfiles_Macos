@@ -33,6 +33,15 @@ return {
       },
       server = {
         standalone = true,
+        settings = {
+          ["rust-analyzer"] = {
+            highlightRelated = {
+              exitPoints = {
+                enable = false,
+              },
+            },
+          },
+        },
       },
     },
   },

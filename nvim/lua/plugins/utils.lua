@@ -37,10 +37,10 @@ return {
     "NvChad/nvim-colorizer.lua",
     config = function(_, opts)
       require("colorizer").setup({
-        filetypes = {
-          "*", -- Highlight all files, but customize some others.
-          "!NvimTree", -- Exclude vim from highlighting.
-          -- Exclusion Only makes sense if '*' is specified!
+        user_default_options = {
+          names = false, -- "Name" codes like Blue or blue
+          mode = "virtualtext", -- Set the display mode.
+          virtualtext = "■",
         },
       })
     end,

@@ -56,30 +56,28 @@ return {
     end,
   },
   {
+    "Shatur/neovim-ayu",
+    config = function()
+      require("ayu").setup({
+        mirage = true,
+      })
+    end,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
       transparent_background = true,
-      styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-        comments = { "italic" }, -- Change the style of comments
-        conditionals = { "bold" },
-      },
-      highlight_overrides = {
-        all = function(colors)
-          return {
-            DiagnosticUnnecessary = { fg = colors.overlay0, style = {} },
-          }
-        end,
-      },
+      no_italic = true,
       color_overrides = {
         all = {
           -- rosewater = "#efc9c2",
           -- flamingo = "#ebb2b2",
           -- pink = "#FCA7EA",
-          -- mauve = "#C099FF",
+          mauve = "#D49BFD",
           -- red = "#FF757F",
           -- maroon = "#FF007C",
-          -- peach = "#FFA759",
+          -- peach = "#f78c6c",
           -- yellow = "#FFFAC2",
           green = "#BAEE9E",
           -- teal = "#78cec1",
@@ -101,6 +99,17 @@ return {
           -- crust = "#0e0f16",
         },
       },
+      styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+        comments = { "italic" }, -- Change the style of comments
+        conditionals = { "bold" },
+      },
+      highlight_overrides = {
+        all = function(colors)
+          return {
+            DiagnosticUnnecessary = { fg = colors.overlay0, style = {} },
+          }
+        end,
+      },
       integrations = {
         telescope = {
           enabled = true,
@@ -112,81 +121,5 @@ return {
       },
     },
   },
-  {
-    "navarasu/onedark.nvim",
-    opts = {
-      style = "warmer", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-      transparent = true, -- Show/hide background
-
-      code_style = {
-        comments = "italic",
-        keywords = "none",
-        functions = "none",
-        strings = "none",
-        variables = "none",
-      },
-
-      -- Lualine options --
-      lualine = {
-        transparent = true, -- lualine center bar transparency
-      },
-
-      -- Custom Highlights --
-      colors = {}, -- Override default colors
-      highlights = {}, -- Override highlight groups
-    },
-  },
-  {
-    "rebelot/kanagawa.nvim",
-    opts = {
-      compile = true, -- enable compiling the colorscheme
-      undercurl = true, -- enable undercurls
-      commentStyle = { italic = true },
-      functionStyle = {},
-      keywordStyle = {},
-      statementStyle = { bold = true },
-      typeStyle = {},
-      transparent = true, -- do not set background color
-      dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-      terminalColors = false, -- define vim.g.terminal_color_{0,17}
-      colors = {
-        theme = {
-          all = {
-            ui = {
-              bg_gutter = "none",
-            },
-          },
-        },
-      },
-      overrides = function(colors)
-        local theme = colors.theme
-        return {
-          NormalFloat = { bg = "none" },
-          FloatBorder = { bg = "none" },
-          FloatTitle = { bg = "none" },
-
-          -- Save an hlgroup with dark background and dimmed foreground
-          -- so that you can use it where your still want darker windows.
-          -- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
-          NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-
-          -- Popular plugins that open floats will link to NormalFloat by default;
-          -- set their background accordingly if you wish to keep them dark and borderless
-          LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-          MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-          TelescopeTitle = { fg = theme.ui.special, bold = true },
-          TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-          TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-          TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
-          TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-          TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-          TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-          Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-          PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-          PmenuSbar = { bg = theme.ui.bg_m1 },
-          PmenuThumb = { bg = theme.ui.bg_p2 },
-        }
-      end,
-    },
-  },
+  {},
 }
