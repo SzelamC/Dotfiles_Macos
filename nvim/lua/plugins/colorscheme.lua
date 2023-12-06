@@ -60,6 +60,17 @@ return {
     name = "catppuccin",
     opts = {
       transparent_background = true,
+      styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+        comments = { "italic" }, -- Change the style of comments
+        conditionals = { "bold" },
+      },
+      highlight_overrides = {
+        all = function(colors)
+          return {
+            DiagnosticUnnecessary = { fg = colors.overlay0, style = {} },
+          }
+        end,
+      },
       color_overrides = {
         all = {
           -- rosewater = "#efc9c2",
