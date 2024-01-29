@@ -6,7 +6,7 @@ return {
   { "mini.indentscope", enabled = false },
   { "mini.pairs", enabled = false },
   { "neo-tree.nvim", enabled = false },
-  { "neoconf.nvim", enabled = false },
+  -- { "neoconf.nvim", enabled = false },
   -- { "neodev.nvim",                         enabled = false },
   -- { "noice.nvim",                          enabled = false },
   -- { "nui.nvim",                            enabled = false },

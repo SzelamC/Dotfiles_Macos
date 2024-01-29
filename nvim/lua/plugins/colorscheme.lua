@@ -42,9 +42,6 @@ return {
     end,
   },
   {
-    "akinsho/horizon.nvim",
-  },
-  {
     "olivercederborg/poimandres.nvim",
     opts = function()
       return {
@@ -53,14 +50,6 @@ return {
         disable_float_background = true, -- disable background for floats
         disable_italics = true, -- disable italics
       }
-    end,
-  },
-  {
-    "Shatur/neovim-ayu",
-    config = function()
-      require("ayu").setup({
-        mirage = true,
-      })
     end,
   },
   {
@@ -73,13 +62,13 @@ return {
         all = {
           -- rosewater = "#efc9c2",
           -- flamingo = "#ebb2b2",
-          -- pink = "#FCA7EA",
+          pink = "#FCA7EA",
           mauve = "#D49BFD",
           -- red = "#FF757F",
           -- maroon = "#FF007C",
           -- peach = "#f78c6c",
           -- yellow = "#FFFAC2",
-          green = "#BAEE9E",
+          green = "#BAFF9E",
           -- teal = "#78cec1",
           -- sky = "#91d7e3",
           -- sapphire = "#5CCFE6",
@@ -121,5 +110,4 @@ return {
       },
     },
   },
-  {},
 }
