@@ -19,6 +19,11 @@ return {
           prefix = "  ",
         },
       },
+      -- servers = {
+      --   volar = {
+      --     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+      --   },
+      -- },
     },
   },
   {
