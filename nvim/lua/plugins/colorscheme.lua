@@ -46,6 +46,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
+      flavour = "macchiato", -- latte, frappe, macchiato, mocha
       transparent_background = transparent_background,
       no_italic = true,
       color_overrides = {
