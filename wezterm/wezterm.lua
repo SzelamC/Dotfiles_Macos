@@ -18,9 +18,31 @@ config.adjust_window_size_when_changing_font_size = false
 config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
-config.window_frame = {
-	font_size = 5,
+-- config.window_frame = {
+-- 	-- The overall background color of the tab bar when
+-- 	-- the window is focused
+-- 	-- active_titlebar_bg = "#1A1f29",
+--
+-- 	-- The overall background color of the tab bar when
+-- 	-- the window is not focused
+-- 	inactive_titlebar_bg = "#1a1b26",
+-- }
+config.colors = {
+	tab_bar = {
+		-- The color of the inactive tab bar edge/divider
+		inactive_tab_edge = "#1F2430",
+		active_tab = {
+			-- The color of the background area for the tab
+			bg_color = "#1A1F29",
+			fg_color = "#CCCAC2",
+		},
+		inactive_tab = {
+			bg_color = "#1F2430",
+			fg_color = "#CCCAC2",
+		},
+	},
 }
+
 config.window_decorations = "RESIZE"
 config.window_padding = {
 	top = "0.5cell",

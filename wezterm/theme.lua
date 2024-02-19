@@ -1,5 +1,3 @@
-local wezterm = require("wezterm")
-
 local Theme = {}
 
 Theme.colors = {
@@ -33,6 +31,12 @@ Theme.colors = {
 
 function Theme.setup(config)
 	local colors = Theme.colors
+
+	config.window_frame = {
+		font_size = 14,
+		active_titlebar_bg = colors.base,
+		inactive_titlebar_bg = "#1a1b26",
+	}
 
 	config.colors = {
 		split = colors.surface0,
