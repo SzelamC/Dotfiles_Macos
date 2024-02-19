@@ -145,21 +145,20 @@ function Tab.setup(config)
 	config.tab_bar_at_bottom = true
 	config.use_fancy_tab_bar = true
 	config.show_new_tab_button_in_tab_bar = false
-	config.tab_max_width = 15
+	config.tab_max_width = 20
 	config.hide_tab_bar_if_only_one_tab = true
 
 	wezterm.on("format-tab-title", function(tab)
 		return wezterm.format({
-			{ Text = "  " },
-			{ Attribute = { Intensity = "Half" } },
 			{ Text = " " },
 			{ Text = string.format("%s", tab.tab_index + 1) },
 			"ResetAttributes",
-			{ Text = "  " },
+			{ Text = " " },
 			{ Text = get_process(tab) },
-			{ Text = "  " },
+			{ Text = " " },
 			{ Text = get_current_working_dir(tab) },
 			{ Foreground = { Color = colors.base } },
+			{ Text = " ▕" },
 		})
 	end)
 end

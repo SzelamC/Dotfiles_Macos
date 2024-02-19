@@ -1,3 +1,4 @@
+local wezterm = require("wezterm")
 local Theme = {}
 
 Theme.colors = {
@@ -33,9 +34,20 @@ function Theme.setup(config)
 	local colors = Theme.colors
 
 	config.window_frame = {
-		font_size = 14,
-		active_titlebar_bg = colors.base,
-		inactive_titlebar_bg = "#1a1b26",
+		font_size = 17,
+		font = wezterm.font_with_fallback({
+			{
+				family = "Zed Mono",
+				harfbuzz_features = { "calt=0", "dlig=0" },
+			},
+			{
+				family = "Iosevka Nerd Font Mono",
+				harfbuzz_features = { "calt=0", "dlig=0" },
+			},
+			"termicons",
+		}),
+
+		active_titlebar_bg = colors.mantle,
 	}
 
 	config.colors = {
@@ -76,12 +88,8 @@ function Theme.setup(config)
 		tab_bar = {
 			background = colors.mantle,
 			active_tab = {
-				bg_color = "none",
+				bg_color = colors.base,
 				fg_color = colors.subtext1,
-				intensity = "Bold",
-				underline = "None",
-				italic = false,
-				strikethrough = false,
 			},
 			inactive_tab = {
 				bg_color = colors.mantle,
