@@ -34,7 +34,7 @@ function Theme.setup(config)
 	local colors = Theme.colors
 
 	config.window_frame = {
-		font_size = 17,
+		font_size = 14,
 		font = wezterm.font_with_fallback({
 			{
 				family = "Zed Mono",
@@ -48,6 +48,7 @@ function Theme.setup(config)
 		}),
 
 		active_titlebar_bg = colors.mantle,
+		inactive_titlebar_bg = colors.mantle,
 	}
 
 	config.colors = {
