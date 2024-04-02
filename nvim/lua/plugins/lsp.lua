@@ -26,28 +26,28 @@ return {
       -- },
     },
   },
-  {
-    "simrat39/rust-tools.nvim",
-    opts = {
-      tools = {
-        inlay_hints = {
-          -- nvim >= 0.10 has native inlay hint support,
-          -- so we don't need the rust-tools specific implementation any longer
-          auto = not vim.fn.has("nvim-0.10"),
-        },
-      },
-      server = {
-        standalone = true,
-        settings = {
-          ["rust-analyzer"] = {
-            highlightRelated = {
-              exitPoints = {
-                enable = false,
-              },
-            },
-          },
-        },
-      },
-    },
-  },
+  -- {
+  --   "simrat39/rust-tools.nvim",
+  --   opts = {
+  --     tools = {
+  --       inlay_hints = {
+  --         -- nvim >= 0.10 has native inlay hint support,
+  --         -- so we don't need the rust-tools specific implementation any longer
+  --         auto = not vim.fn.has("nvim-0.10"),
+  --       },
+  --     },
+  --     server = {
+  --       standalone = true,
+  --       settings = {
+  --         ["rust-analyzer"] = {
+  --           highlightRelated = {
+  --             exitPoints = {
+  --               enable = false,
+  --             },
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 }

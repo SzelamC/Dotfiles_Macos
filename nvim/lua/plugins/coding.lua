@@ -92,6 +92,7 @@ return {
         ["markdown.mdx"] = { "prettierd" },
         ["graphql"] = { "prettierd" },
         ["handlebars"] = { "prettierd" },
+        ["solidity"] = { "prettierd" },
       },
     },
   },
