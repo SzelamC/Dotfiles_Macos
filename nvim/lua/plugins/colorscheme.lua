@@ -46,15 +46,26 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      flavour = "macchiato", -- latte, frappe, macchiato, mocha
+      flavour = "frappe", -- latte, frappe, macchiato, mocha
       transparent_background = transparent_background,
       no_italic = true,
-      color_overrides = {
-        all = {},
-      },
       styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
         comments = { "italic" }, -- Change the style of comments
         conditionals = { "bold" },
+      },
+      color_overrides = {
+        all = {
+          red = "#F38BA8",
+          pink = "#F5C2E7",
+          green = "#b6f4be",
+          blue = "#8bc2f0",
+          yellow = "#ffe9b6",
+          purple = "#d0a9e5",
+          teal = "#B5E8E0",
+          orange = "#F8BD96",
+          sky = "#89DCEB",
+          lavender = "#c7d1ff",
+        },
       },
       highlight_overrides = {
         all = function(cp)
