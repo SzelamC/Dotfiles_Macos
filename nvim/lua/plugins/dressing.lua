@@ -1,12 +1,5 @@
 return {
   {
-    "mskelton/termicons.nvim",
-    config = true,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
-  {
     "stevearc/dressing.nvim",
     init = function() end,
     lazy = false,
@@ -61,38 +54,6 @@ return {
             [":w<CR>"] = "Confirm",
           },
         },
-      },
-    },
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function()
-      return {
-        options = {
-          theme = "catppuccin",
-          component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
-        },
-
-        sections = {
-          lualine_a = {
-            {
-              "mode",
-            },
-          },
-        },
-      }
-    end,
-  },
-  {
-    "folke/noice.nvim",
-    opts = {
-      messages = {
-        enabled = false,
-      },
-      notify = {
-        enabled = false,
       },
     },
   },

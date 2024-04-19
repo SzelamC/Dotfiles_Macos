@@ -1,28 +1,5 @@
 return {
   {
-    "onsails/lspkind.nvim",
-    event = "VeryLazy",
-    config = function()
-      local icons = require("lazyvim.config").icons.kinds
-      require("lspkind").presets["default"] = icons
-    end,
-  },
-  {
-    "windwp/nvim-autopairs",
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-    },
-    opts = {
-      fast_wrap = {},
-      disable_filetype = { "TelescopePrompt", "vim" },
-    },
-    config = function(_, opts)
-      require("nvim-autopairs").setup(opts)
-      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end,
-  },
-  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
@@ -68,32 +45,5 @@ return {
         documentation = cmp.config.window.bordered(),
       }
     end,
-  },
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      format = {
-        timeout_ms = 5000,
-      },
-      formatters_by_ft = {
-        ["javascript"] = { "prettierd" },
-        ["javascriptreact"] = { "prettierd" },
-        ["typescript"] = { "prettierd" },
-        ["typescriptreact"] = { "prettierd" },
-        ["vue"] = { "prettierd" },
-        ["css"] = { "prettierd" },
-        ["scss"] = { "prettierd" },
-        ["less"] = { "prettierd" },
-        ["html"] = { "prettierd" },
-        ["json"] = { "prettierd" },
-        ["jsonc"] = { "prettierd" },
-        ["yaml"] = { "prettierd" },
-        ["markdown"] = { "prettierd" },
-        ["markdown.mdx"] = { "prettierd" },
-        ["graphql"] = { "prettierd" },
-        ["handlebars"] = { "prettierd" },
-        ["solidity"] = { "prettierd" },
-      },
-    },
   },
 }
