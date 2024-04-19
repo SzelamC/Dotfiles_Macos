@@ -46,7 +46,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      flavour = "frappe", -- latte, frappe, macchiato, mocha
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
       transparent_background = transparent_background,
       no_italic = true,
       styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
@@ -58,9 +58,9 @@ return {
           red = "#F38BA8",
           pink = "#F5C2E7",
           green = "#b6f4be",
-          blue = "#8bc2f0",
           yellow = "#ffe9b6",
           purple = "#d0a9e5",
+          blue = "#89B4FA",
           teal = "#B5E8E0",
           orange = "#F8BD96",
           sky = "#89DCEB",
@@ -76,9 +76,9 @@ return {
               fg = transparent_background and cp.blue or cp.mantle,
               bg = transparent_background and cp.none or cp.mantle,
             },
-            CursorLineNr = { fg = cp.green },
+            CursorLineNr = { fg = cp.sky },
 
-            -- For native lsp configs
+            -- -- For native lsp configs
             DiagnosticVirtualTextError = { bg = cp.none },
             DiagnosticVirtualTextWarn = { bg = cp.none },
             DiagnosticVirtualTextInfo = { bg = cp.none },
@@ -86,14 +86,47 @@ return {
             DiagnosticUnnecessary = { fg = cp.overlay0, style = {} },
             LspInfoBorder = { link = "FloatBorder" },
 
-            -- For mason.nvim
-            MasonNormal = { link = "NormalFloat" },
+            -- telescope
+            TelescopeBorder = {
+              fg = cp.mantle,
+              bg = cp.mantle,
+            },
+            TelescopeMatching = { fg = cp.blue },
+            TelescopeNormal = {
+              bg = cp.mantle,
+            },
+            TelescopePromptBorder = {
+              fg = cp.surface0,
+              bg = cp.surface0,
+            },
+            TelescopePromptNormal = {
+              fg = cp.text,
+              bg = cp.surface0,
+            },
+            TelescopePromptPrefix = {
+              fg = cp.flamingo,
+              bg = cp.surface0,
+            },
+            TelescopePreviewTitle = {
+              fg = cp.base,
+              bg = cp.green,
+            },
+            TelescopePromptTitle = {
+              fg = cp.base,
+              bg = cp.red,
+            },
+            TelescopeResultsTitle = {
+              fg = cp.mantle,
+              bg = cp.lavender,
+            },
+            TelescopeSelection = {
+              fg = cp.text,
+              bg = cp.surface0,
+              style = { "bold" },
+            },
+            TelescopeSelectionCaret = { fg = cp.flamingo },
 
-            -- For indent-blankline
-            IblIndent = { fg = cp.surface0 },
-            IblScope = { fg = cp.surface2, style = { "bold" } },
-
-            -- For nvim-cmp and wilder.nvim
+            -- -- For nvim-cmp and wilder.nvim
             Pmenu = { fg = cp.overlay2, bg = transparent_background and cp.none or cp.base },
             PmenuBorder = { fg = cp.surface1, bg = transparent_background and cp.none or cp.base },
             PmenuSel = { bg = cp.green, fg = cp.base },
@@ -104,14 +137,8 @@ return {
               fg = transparent_background and cp.surface1 or cp.mantle,
               bg = transparent_background and cp.none or cp.mantle,
             },
-
-            -- For telescope.nvim
-            TelescopeMatching = { fg = cp.lavender },
-            TelescopeResultsDiffAdd = { fg = cp.green },
-            TelescopeResultsDiffChange = { fg = cp.yellow },
-            TelescopeResultsDiffDelete = { fg = cp.red },
-
-            -- For treesitter
+            -- -- For telescope.nvim
+            -- -- For treesitter
             ["@keyword.return"] = { fg = cp.pink, style = clear },
             ["@error.c"] = { fg = cp.none, style = clear },
             ["@error.cpp"] = { fg = cp.none, style = clear },

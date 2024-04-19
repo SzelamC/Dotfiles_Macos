@@ -23,6 +23,7 @@ return {
         ["graphql"] = { "prettierd" },
         ["handlebars"] = { "prettierd" },
         ["solidity"] = { "prettierd" },
+        ["lua"] = { "stylua" },
       },
     },
   },
