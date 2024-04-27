@@ -1,5 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -20,7 +18,6 @@ alias cdg="cd ~/dev"
 alias cdc="cd ~/.config"
 alias cr="cargo run"
 alias crw="cargo watch -x run"
-alias rm="trash-put"
 alias pn=pnpm
 
 
@@ -74,7 +71,29 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# custom path
+export PATH=/Users/szelc/.local/bin:$PATH
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export LIBRARY_PATH="/opt/homebrew/lib"
+export PATH="$HOME/.cargo/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$(go env GOPATH)/bin 
 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source ~/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+bindkey '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 
+# bun completions
+[ -s "/opt/homebrew/Cellar/bun/1.0.0/share/zsh/site-functions/_bun" ] && source "/opt/homebrew/Cellar/bun/1.0.0/share/zsh/site-functions/_bun"
+
+[ -f "/Users/szelc/.ghcup/env" ] && source "/Users/szelc/.ghcup/env" # ghcup-env
+
+# bun completions
+[ -s "/Users/szelc/.bun/_bun" ] && source "/Users/szelc/.bun/_bun"

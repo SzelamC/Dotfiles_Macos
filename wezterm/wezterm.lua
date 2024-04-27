@@ -28,13 +28,13 @@ config.window_padding = {
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "Zed Mono",
+		family = "Monaspace Krypton",
 		harfbuzz_features = { "calt=0", "dlig=0" },
 	},
-	{
-		family = "Iosevka Nerd Font Mono",
-		harfbuzz_features = { "calt=0", "dlig=0" },
-	},
+	-- {
+	-- 	family = "Iosevka Nerd Font Mono",
+	-- 	harfbuzz_features = { "calt=0", "dlig=0" },
+	-- },
 	"termicons",
 })
 
