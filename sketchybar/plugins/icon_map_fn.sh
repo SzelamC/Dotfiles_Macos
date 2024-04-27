@@ -2,7 +2,7 @@
 
 function icon_map() {
   case "$1" in
-  "Keynote" | "Keynote 讲演")
+  "Keynote")
     icon_result=":keynote:"
     ;;
   "Figma")
@@ -11,7 +11,7 @@ function icon_map() {
   "VMware Fusion")
     icon_result=":vmware_fusion:"
     ;;
-  "Alacritty" | "Hyper" | "iTerm2" | "kitty" | "Terminal" | "终端" | "WezTerm")
+  "Alacritty" | "Hyper" | "iTerm2" | "kitty" | "Terminal" | "WezTerm")
     icon_result=":terminal:"
     ;;
   "Microsoft To Do" | "Things")
@@ -104,7 +104,7 @@ function icon_map() {
   "Sequel Pro")
     icon_result=":sequel_pro:"
     ;;
-  "Reminders" | "提醒事项")
+  "Reminders")
     icon_result=":reminders:"
     ;;
   "Setapp")
@@ -119,7 +119,7 @@ function icon_map() {
   "LibreWolf")
     icon_result=":libre_wolf:"
     ;;
-  "Notes" | "备忘录")
+  "Notes")
     icon_result=":notes:"
     ;;
   "Notion")
@@ -182,7 +182,7 @@ function icon_map() {
   "DEVONthink 3")
     icon_result=":devonthink3:"
     ;;
-  "Color Picker" | "数码测色计")
+  "Color Picker")
     icon_result=":color_picker:"
     ;;
   "Tweetbot" | "Twitter")
@@ -191,7 +191,7 @@ function icon_map() {
   "Default")
     icon_result=":default:"
     ;;
-  "Pages" | "Pages 文稿")
+  "Pages")
     icon_result=":pages:"
     ;;
   "Emacs")
@@ -200,7 +200,7 @@ function icon_map() {
   "MAMP" | "MAMP PRO")
     icon_result=":mamp:"
     ;;
-  "Canary Mail" | "HEY" | "Mail" | "Mailspring" | "MailMate" | "邮件")
+  "Canary Mail" | "HEY" | "Mail" | "Mailspring" | "MailMate")
     icon_result=":mail:"
     ;;
   "WebStorm")
@@ -218,10 +218,10 @@ function icon_map() {
   "Blender")
     icon_result=":blender:"
     ;;
-  "Music" | "音乐")
+  "Music")
     icon_result=":music:"
     ;;
-  "Calendar" | "日历" | "Fantastical" | "Cron" | "Amie")
+  "Calendar" | "Fantastical" | "Cron" | "Amie")
     icon_result=":calendar:"
     ;;
   "Evernote Legacy")
@@ -230,7 +230,7 @@ function icon_map() {
   "Microsoft Word")
     icon_result=":microsoft_word:"
     ;;
-  "Safari" | "Safari浏览器" | "Safari Technology Preview")
+  "Safari" | "Safari Technology Preview")
     icon_result=":safari:"
     ;;
   "MoneyMoney")
@@ -239,7 +239,7 @@ function icon_map() {
   "Xcode")
     icon_result=":xcode:"
     ;;
-  "Numbers" | "Numbers 表格")
+  "Numbers")
     icon_result=":numbers:"
     ;;
   "ClickUp")
@@ -263,9 +263,6 @@ function icon_map() {
   "Min")
     icon_result=":min_browser:"
     ;;
-  "网易云音乐")
-    icon_result=":netease_music:"
-    ;;
   "GrandTotal" | "Receipts")
     icon_result=":dollar:"
     ;;
@@ -274,9 +271,6 @@ function icon_map() {
     ;;
   "Folx")
     icon_result=":folx:"
-    ;;
-  "微信")
-    icon_result=":wechat:"
     ;;
   "Orion" | "Orion RC")
     icon_result=":orion:"
@@ -296,7 +290,7 @@ function icon_map() {
   "Drafts")
     icon_result=":drafts:"
     ;;
-  "Preview" | "预览" | "Skim" | "zathura")
+  "Preview" | "Skim" | "zathura")
     icon_result=":pdf:"
     ;;
   "PyCharm")
@@ -311,16 +305,10 @@ function icon_map() {
   "VSCodium")
     icon_result=":vscodium:"
     ;;
-  "Podcasts" | "播客")
+  "Podcasts")
     icon_result=":podcasts:"
     ;;
-  "DingTalk" | "钉钉" | "阿里钉")
-    icon_result=":dingtalk:"
-    ;;
-  "OBS")
-    icon_result=":obsstudio:"
-    ;;
-  "Firefox Developer Edition" | "Firefox Nightly")
+  "DingTalk" | "Firefox Nightly")
     icon_result=":firefox_developer_edition:"
     ;;
   "Alfred")
@@ -374,7 +362,7 @@ function icon_map() {
   "Warp")
     icon_result=":warp:"
     ;;
-  "Messages" | "信息" | "Nachrichten")
+  "Messages" | "Nachrichten")
     icon_result=":messages:"
     ;;
   "Obsidian")
@@ -386,11 +374,8 @@ function icon_map() {
   "Atom")
     icon_result=":atom:"
     ;;
-  "FaceTime" | "FaceTime 通话")
+  "FaceTime")
     icon_result=":face_time:"
-    ;;
-  "Yuque" | "语雀")
-    icon_result=":yuque:"
     ;;
   "Grammarly Editor")
     icon_result=":grammarly:"
@@ -416,7 +401,7 @@ function icon_map() {
   "Bear")
     icon_result=":bear:"
     ;;
-  "System Preferences" | "System Settings" | "系统设置")
+  "System Preferences" | "System Settings")
     icon_result=":gear:"
     ;;
   "Nova")
