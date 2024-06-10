@@ -34,7 +34,7 @@ function Theme.setup(config)
 	local colors = Theme.colors
 
 	config.window_frame = {
-		font_size = 14,
+		font_size = 13,
 		font = wezterm.font_with_fallback({
 			{
 				family = "Zed Mono",

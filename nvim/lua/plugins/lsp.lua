@@ -13,7 +13,6 @@ return {
       keys[#keys + 1] = { "gl", vim.diagnostic.open_float, desc = "Hover Document" }
     end,
     opts = {
-      inlay_hints = { enabled = false },
       diagnostics = {
         virtual_text = {
           prefix = "  ",

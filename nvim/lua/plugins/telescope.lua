@@ -3,7 +3,6 @@ return {
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Telescope live grep" },
-      { "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Telescope grep string" },
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Telescope buffers" },
       { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Telescope help_tags" },
     },

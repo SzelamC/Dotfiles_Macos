@@ -18,6 +18,9 @@ return {
         "typescript",
         "vim",
         "yaml",
+        "xml",
+        "http",
+        "graphql",
       },
       highlight = {
         additional_vim_regex_highlighting = false,

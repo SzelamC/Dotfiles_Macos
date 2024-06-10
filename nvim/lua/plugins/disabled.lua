@@ -9,8 +9,7 @@ return {
   { "nvim-notify", enabled = false },
   { "persistence.nvim", enabled = false },
   { "vim-illuminate", enabled = false },
-  { "trouble.nvim", enabled = false },
+  { "trouble.nvim", enabled = true },
   { "nvim-treesitter-context", enabled = false },
-  { "nvim-spectre", enabled = false },
   { "mini.surround", enabled = false },
 }

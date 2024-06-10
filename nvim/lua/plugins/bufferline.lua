@@ -6,12 +6,14 @@ return {
       { "H", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
       { "L", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
     },
+    dependencies = {
+      "catppuccin",
+    },
     opts = function()
-      local bufferline = require("bufferline")
       return {
+        highlights = require("catppuccin.groups.integrations.bufferline").get(),
         options = {
           mode = "buffers",
-          style_preset = bufferline.style_preset.no_italic,
           diagnostics = "nvim_lsp",
           offsets = {
             {
@@ -20,13 +22,6 @@ return {
               text_align = "left",
               separator = true,
             },
-          },
-
-          separator_style = { "", "" },
-          hover = {
-            enabled = true,
-            delay = 200,
-            reveal = { "close" },
           },
         },
       }

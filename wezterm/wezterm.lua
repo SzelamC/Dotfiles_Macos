@@ -18,6 +18,30 @@ config.adjust_window_size_when_changing_font_size = false
 config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
+-- config.window_frame = {
+-- 	-- The overall background color of the tab bar when
+-- 	-- the window is focused
+-- 	-- active_titlebar_bg = "#1A1f29",
+--
+-- 	-- The overall background color of the tab bar when
+-- 	-- the window is not focused
+-- 	inactive_titlebar_bg = "#1a1b26",
+-- }
+config.colors = {
+	tab_bar = {
+		-- The color of the inactive tab bar edge/divider
+		inactive_tab_edge = "#1F2430",
+		active_tab = {
+			-- The color of the background area for the tab
+			bg_color = "#1A1F29",
+			fg_color = "#CCCAC2",
+		},
+		inactive_tab = {
+			bg_color = "#1F2430",
+			fg_color = "#CCCAC2",
+		},
+	},
+}
 
 config.window_decorations = "RESIZE"
 config.window_padding = {
@@ -28,22 +52,29 @@ config.window_padding = {
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "Monaspace Krypton",
-		harfbuzz_features = { "calt=0", "dlig=0" },
+		family = "Comic Code",
 	},
 	-- {
-	-- 	family = "Iosevka Nerd Font Mono",
+	-- 	family = "Zed Mono",
+	-- 	weight = "Regular",
+	-- 	stretch = "Expanded",
 	-- 	harfbuzz_features = { "calt=0", "dlig=0" },
 	-- },
+	{
+		family = "JetBrainsMono Nerd Font Mono",
+		harfbuzz_features = { "calt=0", "dlig=0" },
+	},
 	"termicons",
+	"SF Pro",
 })
 
-config.font_size = 15
-config.line_height = 1.15
+config.font_size = 16
+config.line_height = 1.2
 config.exit_behavior = "Close"
 config.window_close_confirmation = "NeverPrompt"
-config.window_background_opacity = 0.8
-config.macos_window_background_blur = 35
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 10
+config.hide_mouse_cursor_when_typing = true
 
 -- disable_default_key_bindings = true
 

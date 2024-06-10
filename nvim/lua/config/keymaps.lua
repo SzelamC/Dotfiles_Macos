@@ -27,8 +27,6 @@ vim.keymap.set({ "n", "v" }, "<leader>lf", function()
 end, { desc = "Format" })
 
 vim.keymap.del("n", "<leader>l")
-vim.keymap.del("n", "<leader>gg")
-vim.keymap.del("n", "<leader>gG")
 vim.keymap.del("n", "<leader>w-")
 vim.keymap.del("n", "<leader>w|")
 vim.keymap.del({ "n", "v" }, "<leader>cf")

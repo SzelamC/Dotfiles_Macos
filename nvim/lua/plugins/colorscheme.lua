@@ -54,18 +54,18 @@ return {
         conditionals = { "bold" },
       },
       color_overrides = {
-        all = {
-          red = "#ff6392",
-          pink = "#ffb0c4",
-          green = "#baf19c",
-          yellow = "#f5ee9e",
-          purple = "#c879ff",
-          blue = "#a2d2ff",
-          teal = "#80ffe8",
-          orange = "#F8BD96",
-          sky = "#baebff",
-          lavender = "#dac7ff",
-        },
+        -- all = {
+        --   red = "#ffb3ba",
+        --   pink = "#FFC0D9",
+        --   green = "#baffc9",
+        --   yellow = "#ffffba",
+        --   purple = "#D0A9E5",
+        --   blue = "#7BD3EA",
+        --   teal = "#7FE7CC",
+        --   orange = "#FFDFBA",
+        --   sky = "#81F5FF",
+        --   lavender = "#D0BFFF",
+        -- },
       },
       highlight_overrides = {
         all = function(cp)
