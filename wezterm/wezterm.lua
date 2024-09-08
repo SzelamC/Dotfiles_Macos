@@ -52,24 +52,16 @@ config.window_padding = {
 
 config.font = wezterm.font_with_fallback({
 	{
-		family = "Comic Code",
-	},
-	-- {
-	-- 	family = "Zed Mono",
-	-- 	weight = "Regular",
-	-- 	stretch = "Expanded",
-	-- 	harfbuzz_features = { "calt=0", "dlig=0" },
-	-- },
-	{
-		family = "JetBrainsMono Nerd Font Mono",
+		family = "Zed Mono",
+		weight = "Regular",
+		stretch = "Expanded",
 		harfbuzz_features = { "calt=0", "dlig=0" },
 	},
-	"termicons",
 	"SF Pro",
 })
 
-config.font_size = 16
-config.line_height = 1.2
+config.font_size = 14
+config.line_height = 1.4
 config.exit_behavior = "Close"
 config.window_close_confirmation = "NeverPrompt"
 config.window_background_opacity = 0.9

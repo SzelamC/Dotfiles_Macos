@@ -10,6 +10,4 @@ return {
   { "persistence.nvim", enabled = false },
   { "vim-illuminate", enabled = false },
   { "trouble.nvim", enabled = true },
-  { "nvim-treesitter-context", enabled = false },
-  { "mini.surround", enabled = false },
 }

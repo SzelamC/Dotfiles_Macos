@@ -20,4 +20,7 @@ return {
       },
     },
   },
+  {
+    "ziglang/zig.vim",
+  },
 }

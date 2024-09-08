@@ -11,13 +11,12 @@ return {
   },
   {
     "max397574/better-escape.nvim",
-    event = "InsertEnter",
-    opts = function()
-      return {
-        mapping = { "jk" },
-        timeout = vim.o.timeoutlen,
-      }
+    config = function()
+      require("better_escape").setup()
     end,
+  },
+  {
+    "ThePrimeagen/vim-be-good",
   },
   {
     "NvChad/nvim-colorizer.lua",

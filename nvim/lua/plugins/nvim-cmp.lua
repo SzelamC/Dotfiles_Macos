@@ -4,9 +4,11 @@ return {
     event = "InsertEnter",
     dependencies = {
       "hrsh7th/cmp-nvim-lua",
+      "onsails/lspkind.nvim",
     },
     opts = function(_, opts)
       local cmp = require("cmp")
+      local lspkind = require("lspkind")
       opts.preselect = cmp.PreselectMode.Item
       opts.experimental.ghost_text = {
         hl_group = "CmpItemKind",
@@ -26,10 +28,6 @@ return {
           cmp.config.compare.length,
           cmp.config.compare.order,
         },
-      }
-
-      opts.formatting = {
-        format = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 100 }),
       }
 
       opts.window = {
