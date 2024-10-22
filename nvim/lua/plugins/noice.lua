@@ -1,8 +1,17 @@
 return {
   {
     "folke/noice.nvim",
-    version = "4.4.7",
     opts = {
+      routes = {
+        {
+          filter = {
+            event = "lsp",
+            kind = "progress",
+            find = "jdtls",
+          },
+          opts = { skip = true },
+        },
+      },
       messages = {
         enabled = false,
       },
