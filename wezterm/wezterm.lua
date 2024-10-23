@@ -53,15 +53,15 @@ config.window_padding = {
 config.font = wezterm.font_with_fallback({
 	{
 		family = "Zed Mono",
-		weight = "Regular",
+		weight = "Medium",
 		stretch = "Expanded",
 		harfbuzz_features = { "calt=0", "dlig=0" },
 	},
 	"SF Pro",
 })
 
-config.font_size = 14
-config.line_height = 1.4
+config.font_size = 16
+config.line_height = 1.3
 config.exit_behavior = "Close"
 config.window_close_confirmation = "NeverPrompt"
 config.window_background_opacity = 0.9
