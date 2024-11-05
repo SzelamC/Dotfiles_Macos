@@ -47,7 +47,7 @@ function Theme.setup(config)
 			"termicons",
 		}),
 
-		active_titlebar_bg = colors.mantle,
+		active_titlebar_bg = colors.green,
 		inactive_titlebar_bg = colors.mantle,
 	}
 

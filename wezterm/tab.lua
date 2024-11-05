@@ -144,21 +144,53 @@ end
 function Tab.setup(config)
 	config.tab_bar_at_bottom = true
 	config.use_fancy_tab_bar = true
-	config.show_new_tab_button_in_tab_bar = false
-	config.tab_max_width = 20
+	config.tab_max_width = 50
 	config.hide_tab_bar_if_only_one_tab = true
+	config.show_new_tab_button_in_tab_bar = false
+
+	config.window_frame = {
+		font_size = 14,
+		active_titlebar_bg = colors.crust,
+		inactive_titlebar_bg = colors.crust,
+	}
+
+	config.colors = {
+		tab_bar = {
+			background = colors.mantle,
+			active_tab = {
+				bg_color = colors.base,
+				fg_color = colors.subtext1,
+			},
+			inactive_tab = {
+				bg_color = colors.mantle,
+				fg_color = colors.surface2,
+			},
+			inactive_tab_hover = {
+				bg_color = colors.base,
+				fg_color = colors.subtext0,
+			},
+			new_tab = {
+				bg_color = colors.base,
+				fg_color = colors.subtext0,
+			},
+			new_tab_hover = {
+				bg_color = colors.base,
+				fg_color = colors.surface2,
+			},
+		},
+	}
 
 	wezterm.on("format-tab-title", function(tab)
 		return wezterm.format({
 			{ Text = " " },
 			{ Text = string.format("%s", tab.tab_index + 1) },
 			"ResetAttributes",
-			{ Text = " " },
+			{ Text = "  " },
 			{ Text = get_process(tab) },
-			{ Text = " " },
+			{ Text = "  " },
 			{ Text = get_current_working_dir(tab) },
 			{ Foreground = { Color = colors.base } },
-			{ Text = " ▕" },
+			{ Text = "▕" },
 		})
 	end)
 end
