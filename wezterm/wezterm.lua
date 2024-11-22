@@ -4,7 +4,6 @@ local tab = require("tab")
 
 local config = wezterm.config_builder()
 
-
 -- font config
 config.font = wezterm.font("ZedMono Nerd Font Mono")
 config.font_size = 16
@@ -26,7 +25,7 @@ config.window_background_opacity = 0.85
 config.macos_window_background_blur = 45
 config.hide_mouse_cursor_when_typing = true
 config.color_scheme = "Poimandres"
-config.disable_default_key_bindings = true
+config.disable_default_key_bindings = false
 
 -- keymap config
 config.leader = { key = "a", mods = "CTRL" }

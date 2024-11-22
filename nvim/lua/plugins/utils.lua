@@ -1,38 +1,13 @@
 return {
   {
     "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
-    config = true,
-  },
-  {
-    "LunarVim/bigfile.nvim",
-    config = true,
   },
   {
     "max397574/better-escape.nvim",
     config = function()
       require("better_escape").setup()
     end,
-  },
-  {
-    "ThePrimeagen/vim-be-good",
-  },
-  {
-    "NvChad/nvim-colorizer.lua",
-    config = function(_, opts)
-      require("colorizer").setup({
-        user_default_options = {
-          names = false, -- "Name" codes like Blue or blue
-          mode = "virtualtext", -- Set the display mode.
-          virtualtext = "■",
-        },
-      })
-    end,
-  },
-  {
-    "gbprod/cutlass.nvim",
-    config = true,
   },
   {
     "kawre/leetcode.nvim",

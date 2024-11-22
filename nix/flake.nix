@@ -6,9 +6,21 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask, homebrew-bundle }:
   let
     configuration = { pkgs, ... }: {
       nixpkgs.config.allowUnfree = true;
@@ -28,22 +40,26 @@
             pkgs.rustup
             pkgs.nodejs
             pkgs.fzf
+            pkgs.python314
+            pkgs.discord
+            pkgs.ripgrep
+            pkgs.fd
+            pkgs.ast-grep
         ];
 
     homebrew = {
       	enable = true;
         masApps = {
-        "Klack" = 6446206067;
-        "Hidden Bar" = 1452453066;
-
+          "Klack" = 6446206067;
+          "Hidden Bar" = 1452453066;
         };
         onActivation = {
-        cleanup = "zap";
+          cleanup = "zap";
         };
     };
 
     fonts.packages = [
-        (pkgs.nerdfonts.override { fonts = [ "Iosevka" ]; })
+        (pkgs.nerdfonts.override { fonts = [ "ZedMono" ]; })
     ];
 
       # Auto upgrade nix package and the daemon service.
@@ -61,11 +77,11 @@
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
       system.defaults = {
-	dock.autohide = true;
-	loginwindow.GuestEnabled = false;
-	NSGlobalDomain.AppleICUForce24HourTime = true;
-	NSGlobalDomain.AppleInterfaceStyle = "Dark";
-	NSGlobalDomain.KeyRepeat = 2;
+        dock.autohide = true;
+        loginwindow.GuestEnabled = false;
+        NSGlobalDomain.AppleICUForce24HourTime = true;
+        NSGlobalDomain.AppleInterfaceStyle = "Dark";
+        NSGlobalDomain.KeyRepeat = 2;
       };
 
       # Used for backwards compatibility, please read the changelog before changing.
@@ -94,8 +110,17 @@
             # User owning the Homebrew prefix
             user = "szelam";
 
-            # Automatically migrate existing Homebrew installations
-            autoMigrate = true;
+            # Optional: Declarative tap management
+            taps = {
+              "homebrew/homebrew-core" = homebrew-core;
+              "homebrew/homebrew-cask" = homebrew-cask;
+              "homebrew/homebrew-bundle" = homebrew-bundle;
+            };
+
+            # Optional: Enable fully-declarative tap management
+            #
+            # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
+            mutableTaps = true;
           };
         }
       ];

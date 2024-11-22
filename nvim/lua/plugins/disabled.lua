@@ -1,5 +1,4 @@
 return {
-  { "dashboard-nvim", enabled = false },
   { "mini.ai", enabled = false },
   { "mini.comment", enabled = false },
   { "mini.indentscope", enabled = false },
