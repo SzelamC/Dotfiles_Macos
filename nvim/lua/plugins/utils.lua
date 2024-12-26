@@ -4,6 +4,10 @@ return {
     event = "VeryLazy",
   },
   {
+    "gbprod/cutlass.nvim",
+    config = true,
+  },
+  {
     "max397574/better-escape.nvim",
     config = function()
       require("better_escape").setup()

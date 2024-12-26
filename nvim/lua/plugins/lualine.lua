@@ -5,7 +5,7 @@ return {
     opts = function()
       return {
         options = {
-          theme = "kanagawa",
+          theme = "catppuccin",
           component_separators = { left = "", right = "" },
           section_separators = { left = "", right = "" },
         },

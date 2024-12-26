@@ -2,7 +2,6 @@ return {
   {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    commit = "ace6422",
     keys = {
       { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Nvim Tree Toggle" },
     },

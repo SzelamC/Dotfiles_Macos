@@ -12,4 +12,6 @@ vim.opt.listchars = {
   tab = "  ",
 }
 
+vim.opt.backupcopy = "yes"
+
 vim.g.autoformat = false
