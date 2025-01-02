@@ -40,26 +40,39 @@
             pkgs.rustup
             pkgs.nodejs
             pkgs.fzf
-            pkgs.python314
+            pkgs.python3
             pkgs.discord
             pkgs.ripgrep
             pkgs.fd
             pkgs.ast-grep
+            pkgs.tableplus
+            pkgs.bun
+            pkgs.postman
+            pkgs.commitizen
+            # pkgs.bruno
+            # pkgs.deno
         ];
 
     homebrew = {
       	enable = true;
         masApps = {
-          "Klack" = 6446206067;
-          "Hidden Bar" = 1452453066;
+            "Klack" = 6446206067;
+            "Hidden Bar" = 1452453066;
         };
+        taps = [
+            "homebrew/services"
+        ];
+        brews = [
+            "docker"
+            "docker-compose"
+        ];
         onActivation = {
           cleanup = "zap";
         };
     };
 
     fonts.packages = [
-        (pkgs.nerdfonts.override { fonts = [ "ZedMono" ]; })
+        pkgs.nerd-fonts.zed-mono
     ];
 
       # Auto upgrade nix package and the daemon service.
@@ -76,12 +89,19 @@
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
-      system.defaults = {
-        dock.autohide = true;
-        loginwindow.GuestEnabled = false;
-        NSGlobalDomain.AppleICUForce24HourTime = true;
-        NSGlobalDomain.AppleInterfaceStyle = "Dark";
-        NSGlobalDomain.KeyRepeat = 2;
+      system = {
+        defaults = {
+            dock = {
+                autohide = true;
+                orientation = "right";
+                persistent-apps  = [];
+                tilesize = 32;
+            };
+            loginwindow.GuestEnabled = false;
+            NSGlobalDomain.AppleICUForce24HourTime = true;
+            NSGlobalDomain.AppleInterfaceStyle = "Dark";
+            NSGlobalDomain.KeyRepeat = 2;
+        };
       };
 
       # Used for backwards compatibility, please read the changelog before changing.

@@ -1,7 +1,18 @@
 return {
   {
-    "kylechui/nvim-surround",
-    event = "VeryLazy",
+    "echasnovski/mini.surround",
+    opts = {
+      mappings = {
+        add = "ys",
+        delete = "ds",
+        find = "gsf",
+        find_left = "gsF",
+        highlight = "gsh",
+        replace = "cs",
+        update_n_lines = "gsn",
+      },
+      search_method = "cover_or_next",
+    },
   },
   {
     "gbprod/cutlass.nvim",
@@ -12,19 +23,5 @@ return {
     config = function()
       require("better_escape").setup()
     end,
-  },
-  {
-    "kawre/leetcode.nvim",
-    build = ":TSUpdate html",
-    opts = {
-      -- configuration goes here
-      arg = "leet",
-      lang = "golang",
-      injector = { ---@type table<lc.lang, lc.inject>
-        ["golang"] = {
-          before = { "package main" },
-        },
-      },
-    },
   },
 }

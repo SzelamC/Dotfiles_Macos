@@ -3,10 +3,10 @@ return {
     "zbirenbaum/copilot.lua",
     opts = {
       panel = {
-        enabled = false,
+        enabled = true,
       },
       suggestion = {
-        enabled = false,
+        enabled = true,
       },
       filetypes = {
         yaml = false,
