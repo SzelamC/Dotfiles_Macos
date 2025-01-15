@@ -11,7 +11,7 @@
       flake = false;
     };
     homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
+      url = "github:Homebrew/homebrew-cask";
       flake = false;
     };
     homebrew-bundle = {
@@ -48,8 +48,8 @@
             pkgs.tableplus
             pkgs.bun
             pkgs.postman
-            pkgs.commitizen
             # pkgs.bruno
+            pkgs.tmux
             # pkgs.deno
         ];
 
@@ -59,15 +59,18 @@
             "Klack" = 6446206067;
             "Hidden Bar" = 1452453066;
         };
-        taps = [
-            "homebrew/services"
-        ];
         brews = [
             "docker"
             "docker-compose"
+            "czg"
+        ];
+        casks = [
+            "ghostty"
         ];
         onActivation = {
           cleanup = "zap";
+          autoUpdate = true;
+          upgrade = true;
         };
     };
 
@@ -117,30 +120,29 @@
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."szelam" = nix-darwin.lib.darwinSystem {
       modules = [
-	configuration 
-	nix-homebrew.darwinModules.nix-homebrew
+        ({ config, ... }: {                                                          # <--
+          homebrew.taps = builtins.attrNames config.nix-homebrew.taps;               # <--
+        })  
+        configuration 
+        nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
             # Install Homebrew under the default prefix
             enable = true;
-
             # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
             enableRosetta = true;
-
             # User owning the Homebrew prefix
             user = "szelam";
-
             # Optional: Declarative tap management
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
               "homebrew/homebrew-bundle" = homebrew-bundle;
             };
-
             # Optional: Enable fully-declarative tap management
             #
             # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
-            mutableTaps = true;
+            mutableTaps = false;
           };
         }
       ];
