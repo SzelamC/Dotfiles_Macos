@@ -1,5 +1,5 @@
 # font
-font-family                    = "ZedMono Nerd Font Mono"
+font-family                    = "ZedMono NFM Medium"
 font-family-bold               = "ZedMono Nerd Font Mono"
 font-size                      = 14
 # font-thicken                   = true
@@ -11,16 +11,17 @@ font-feature                   = -liga
 font-feature                   = -dlig
 
 # cell
-adjust-cell-height             = 10
+adjust-cell-height             = 5
 window-padding-x               = 10
-adjust-cursor-height           = 10
+adjust-cursor-height           = 5
 window-padding-y               = 10
 
 # appearance
 theme                          = catppuccin-mocha
+background-opacity             = 0.6
+background-blur-radius         = 15
 macos-titlebar-style           = hidden
 cursor-style                   = block
-shell-integration-features     = no-cursor
 cursor-style-blink             = false
 mouse-hide-while-typing        = true
 macos-non-native-fullscreen    = true
@@ -42,6 +43,6 @@ macos-auto-secure-input        = true
 macos-secure-input-indication  = true
 scrollback-limit               = 4200
 shell-integration              = zsh
-shell-integration-features     = cursor,sudo,title
+shell-integration-features     = no-cursor,sudo,title
 
 # keybinding
