@@ -82,7 +82,7 @@ outer.right = 10
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
 # You can uncomment the following lines to open up terminal with alt + enter shortcut (like in i3)
-ctrl-enter = 'exec-and-forget open -n /Applications/Nix\ Apps/WezTerm.app/'
+ctrl-enter = 'exec-and-forget open -n /Applications/Ghostty.app'
 
 # disable hide application shortcut
 cmd-h = []     # Disable "hide application"

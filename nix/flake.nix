@@ -70,7 +70,9 @@
             "influxdb-cli"
         ];
         casks = [
+            "alcove"
             "ghostty"
+            "zen-browser"
         ];
         onActivation = {
           cleanup = "zap";

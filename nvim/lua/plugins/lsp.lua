@@ -18,6 +18,17 @@ return {
           prefix = "  ",
         },
       },
+      servers = {
+        vtsls = {
+          settings = {
+            typescript = {
+              preferences = {
+                importModuleSpecifier = "non-relative",
+              },
+            },
+          },
+        },
+      },
     },
   },
   {

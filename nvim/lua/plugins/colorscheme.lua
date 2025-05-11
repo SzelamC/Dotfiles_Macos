@@ -46,7 +46,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
-      flavour = "frappe", -- latte, frappe, macchiato, mocha
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
       transparent_background = true,
       no_italic = false,
       styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):

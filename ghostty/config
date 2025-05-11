@@ -1,25 +1,23 @@
 # font
-font-family                    = "ZedMono NFM Medium"
+font-family                    = "ZedMono Nerd Font Mono"
+font-style                     = "Regular"
 font-family-bold               = "ZedMono Nerd Font Mono"
+font-style-bold                = "Bold"
 font-size                      = 14
-# font-thicken                   = true
-font-feature                   = calt
-font-feature                   = liga
-font-feature                   = ss13
 font-feature                   = -calt
 font-feature                   = -liga 
 font-feature                   = -dlig
 
 # cell
-adjust-cell-height             = 5
+adjust-cell-height             = 10
 window-padding-x               = 10
-adjust-cursor-height           = 5
+adjust-cursor-height           = 10
 window-padding-y               = 10
 
 # appearance
-theme                          = catppuccin-mocha
-background-opacity             = 0.6
-background-blur-radius         = 15
+theme                          = tokyonight_moon
+background-opacity             = 0.75
+background-blur-radius         = 10
 macos-titlebar-style           = hidden
 cursor-style                   = block
 cursor-style-blink             = false
