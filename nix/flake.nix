@@ -1,5 +1,5 @@
 {
-  description = "Example Darwin system flake";
+  description = "Szelam Darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -53,6 +53,7 @@
             pkgs.uv
             pkgs.jq
             pkgs.redis
+            pkgs.pnpm
             # pkgs.deno
         ];
 
@@ -70,7 +71,6 @@
             "influxdb-cli"
         ];
         casks = [
-            "alcove"
             "ghostty"
             "zen-browser"
         ];
@@ -85,9 +85,8 @@
         pkgs.nerd-fonts.zed-mono
     ];
 
-      # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
-      # nix.package = pkgs.nix;
+      system.primaryUser = "szelam";
+      nix.enable = true;
       services.redis.enable = true;
 
       # Necessary for using flakes on this system.
@@ -95,7 +94,6 @@
 
       # Create /etc/zshrc that loads the nix-darwin environment.
       programs.zsh.enable = true;  # default shell on catalina
-      # programs.fish.enable = true;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
