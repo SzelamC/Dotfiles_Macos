@@ -22,6 +22,7 @@ bindkey "^[[B" history-search-forward
 
 # custom alias
 alias ls="eza --icons"
+alias cd="z"
 alias vim="nvim"
 alias g="git"
 alias cdg="z ~/dev"
@@ -40,6 +41,21 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+# source ~/.zsh/git-completion.bash
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 eval "$(zoxide init zsh)"
+autoload -Uz compinit && compinit
+. "/Users/sam.slchan/.deno/env"
+# bun completions
+[ -s "/Users/sam.slchan/.bun/_bun" ] && source "/Users/sam.slchan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. "$HOME/.local/bin/env"

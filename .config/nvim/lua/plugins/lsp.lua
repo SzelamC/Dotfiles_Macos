@@ -18,6 +18,34 @@ return {
           prefix = "  ",
         },
       },
+      servers = {
+        vtsls = {
+          settings = {
+            typescript = {
+              preferences = {
+                includeCompletionsForModuleExports = true,
+                includeCompletionsForImportStatements = true,
+                importModuleSpecifier = "non-relative",
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-jdtls",
+    opts = {
+      settings = {
+        java = {
+          format = {
+            settings = {
+              url = "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+              profile = "GoogleStyle",
+            },
+          },
+        },
+      },
     },
   },
   {

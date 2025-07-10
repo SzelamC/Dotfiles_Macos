@@ -1,24 +1,64 @@
 return {
   "saghen/blink.cmp",
-  opts = {
-    keymap = {
-      preset = "enter",
-      ["<Tab>"] = { "select_next", "fallback" },
-      ["<S-Tab>"] = { "select_prev", "fallback" },
+  dependencies = {
+    {
+      "giuxtaposition/blink-cmp-copilot",
     },
+  },
+  opts = {
     completion = {
-      trigger = {
-        show_on_trigger_character = true,
-        show_on_accept_on_trigger_character = true,
-        show_on_insert_on_trigger_character = false,
+      list = {
+        selection = {
+          preselect = true,
+          auto_insert = true,
+        },
       },
+      ghost_text = {
+        enabled = true,
+        show_with_menu = true,
+      },
+      menu = {
+        auto_show = function(ctx)
+          return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?" }, vim.fn.getcmdtype())
+        end,
+        draw = {
+          columns = { { "kind_icon" }, { "label", "label_description", "kind", gap = 1 } },
+          components = {
+            kind_icon = {
+              ellipsis = false,
+              text = function(ctx)
+                local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+                return kind_icon
+              end,
+              -- Optionally, you may also use the highlights from mini.icons
+              highlight = function(ctx)
+                local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                return hl
+              end,
+            },
+          },
+        },
+      },
+      documentation = { auto_show = true, auto_show_delay_ms = 200 },
     },
     appearance = {
-      use_nvim_cmp_as_default = true,
+      nerd_font_variant = "mono",
     },
-    menu = {
-      min_width = 50,
-      max_height = 20,
+    signature = { enabled = true, window = { border = "rounded" } },
+    keymap = {
+      ["<Tab>"] = { "select_next", "fallback_to_mappings" },
+      ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
+    },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer", "copilot" },
+      providers = {
+        copilot = {
+          name = "copilot",
+          module = "blink-cmp-copilot",
+          score_offset = 100,
+          async = true,
+        },
+      },
     },
   },
 }

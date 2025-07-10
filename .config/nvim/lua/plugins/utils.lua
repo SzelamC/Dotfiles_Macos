@@ -1,8 +1,39 @@
 return {
   {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+      "TmuxNavigatorProcessList",
+    },
+    keys = {
+      { "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  },
+  {
+    "echasnovski/mini.surround",
+    opts = {
+      mappings = {
+        add = "ys",
+        delete = "ds",
+        find = "gsf",
+        find_left = "gsF",
+        highlight = "gsh",
+        replace = "cs",
+        update_n_lines = "gsn",
+      },
+      search_method = "cover_or_next",
+    },
+  },
+  {
+    "gbprod/cutlass.nvim",
     config = true,
   },
   {
@@ -10,23 +41,5 @@ return {
     config = function()
       require("better_escape").setup()
     end,
-  },
-  {
-    "gbprod/cutlass.nvim",
-    config = true,
-  },
-  {
-    "kawre/leetcode.nvim",
-    build = ":TSUpdate html",
-    opts = {
-      -- configuration goes here
-      arg = "leet",
-      lang = "golang",
-      injector = { ---@type table<lc.lang, lc.inject>
-        ["golang"] = {
-          before = { "package main" },
-        },
-      },
-    },
   },
 }
