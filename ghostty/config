@@ -16,8 +16,8 @@ window-padding-y               = 10
 
 # appearance
 theme                          = tokyonight_moon
-background-opacity             = 0.75
-background-blur-radius         = 10
+background-opacity             = 0.85
+background-blur-radius         = 20
 macos-titlebar-style           = hidden
 cursor-style                   = block
 cursor-style-blink             = false
@@ -39,6 +39,7 @@ clipboard-trim-trailing-spaces = true
 copy-on-select                 = true
 macos-auto-secure-input        = true
 macos-secure-input-indication  = true
+macos-option-as-alt            = true
 scrollback-limit               = 4200
 shell-integration              = zsh
 shell-integration-features     = no-cursor,sudo,title

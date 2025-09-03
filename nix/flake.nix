@@ -40,7 +40,6 @@
             pkgs.rustup
             pkgs.nodejs
             pkgs.fzf
-            pkgs.python3
             pkgs.discord
             pkgs.ripgrep
             pkgs.fd
@@ -54,6 +53,7 @@
             pkgs.jq
             pkgs.redis
             pkgs.pnpm
+            pkgs.htop
             # pkgs.deno
         ];
 
@@ -72,7 +72,7 @@
         ];
         casks = [
             "ghostty"
-            "zen-browser"
+            "zen"
         ];
         onActivation = {
           cleanup = "zap";

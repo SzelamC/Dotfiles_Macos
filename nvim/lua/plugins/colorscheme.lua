@@ -48,21 +48,16 @@ return {
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       transparent_background = true,
+      float = {
+        transparent = true, -- enable transparent floating windows
+        solid = true, -- use solid styling for floating windows, see |winborder|
+      },
       no_italic = false,
       styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
         comments = { "italic" }, -- Change the style of comments
         conditionals = { "bold" },
       },
-      color_overrides = {},
-      highlight_overrides = {
-        all = function(cp)
-          return {}
-        end,
-      },
-      integrations = {
-        fzf = true,
-        blink_cmp = true,
-      },
+      auto_integrations = true,
     },
   },
 }

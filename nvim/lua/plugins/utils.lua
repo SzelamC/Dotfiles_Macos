@@ -42,4 +42,14 @@ return {
       require("better_escape").setup()
     end,
   },
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {
+      hide_target_hack = true,
+      cursor_color = "none",
+      stiffness = 0.5,
+      trailing_stiffness = 0.5,
+      matrix_pixel_threshold = 0.5,
+    },
+  },
 }

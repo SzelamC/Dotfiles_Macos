@@ -9,6 +9,10 @@ return {
     dependencies = {
       "catppuccin",
     },
+    init = function()
+      local bufline = require("catppuccin.groups.integrations.bufferline")
+      bufline.get = bufline.get_theme
+    end,
     opts = function()
       return {
         highlights = require("catppuccin.groups.integrations.bufferline").get(),
