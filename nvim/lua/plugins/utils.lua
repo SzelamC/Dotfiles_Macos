@@ -18,7 +18,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       mappings = {
         add = "ys",
@@ -43,13 +43,7 @@ return {
     end,
   },
   {
-    "sphamba/smear-cursor.nvim",
-    opts = {
-      hide_target_hack = true,
-      cursor_color = "none",
-      stiffness = 0.5,
-      trailing_stiffness = 0.5,
-      matrix_pixel_threshold = 0.5,
-    },
+    "linux-cultist/venv-selector.nvim",
+    branch = "main",
   },
 }
