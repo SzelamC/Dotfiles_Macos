@@ -1,0 +1,47 @@
+# font
+font-family                    = "ZedMono Nerd Font Mono"
+font-style                     = "Regular"
+font-family-bold               = "ZedMono Nerd Font Mono"
+font-style-bold                = "Bold"
+font-size                      = 14
+font-feature                   = -calt
+font-feature                   = -liga 
+font-feature                   = -dlig
+
+# cell
+adjust-cell-height             = 10
+window-padding-x               = 10
+adjust-cursor-height           = 10
+window-padding-y               = 10
+
+# appearance
+theme                          = Catppuccin Mocha
+background-opacity             = 0.85
+background-blur-radius         = 20
+macos-titlebar-style           = hidden
+cursor-style                   = block
+cursor-style-blink             = false
+mouse-hide-while-typing        = true
+macos-non-native-fullscreen    = true
+adjust-cursor-thickness        = 3
+adjust-underline-position      = 3
+bold-is-bright                 = true
+cursor-opacity                 = 1
+link-url                       = true
+mouse-hide-while-typing        = true
+window-vsync                   = true
+window-inherit-font-size       = true
+
+# general
+confirm-close-surface          = false
+clipboard-paste-protection     = true
+clipboard-trim-trailing-spaces = true
+copy-on-select                 = true
+macos-auto-secure-input        = true
+macos-secure-input-indication  = true
+macos-option-as-alt            = true
+scrollback-limit               = 4200
+shell-integration              = zsh
+shell-integration-features     = no-cursor,sudo,title
+
+# keybinding
