@@ -22,6 +22,8 @@ type = "prompt"
     style = "plain"
     template = "{{ .Path }} "
     type = "path"
+    [blocks.segments.options]
+    style = "full"
   [[blocks.segments]]
     foreground = "p:lavender"
     template = "{{ .HEAD }}{{ if .Staging.Changed }} {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} {{ .Working.String }}{{ end }} "
