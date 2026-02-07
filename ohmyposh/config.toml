@@ -8,6 +8,8 @@ closer = "p:os"
 pink = "#F5C2E7"
 lavender = "#B4BEFE"
 blue = "#89B4FA"
+go_blue = "#89DCEB"
+py_yellow = "#F9E2AF"
 
 [[blocks]]
 alignment = "left"
@@ -26,10 +28,10 @@ type = "prompt"
     style = "full"
   [[blocks.segments]]
     foreground = "p:lavender"
-    template = "{{ .HEAD }}{{ if .Staging.Changed }} {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} {{ .Working.String }}{{ end }} "
+    template = "{{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }} {{ .Working.String }}{{ if and (.Working.Changed) (.Staging.Changed) }}|{{ end }}{{ .Staging.String }}{{ end }} "
     style = "plain"
     type = "git"
-  [blocks.segments.options]
+  [blocks.segments.properties]
     branch_icon = " "
     cherry_pick_icon = " "
     commit_icon = " "
@@ -40,25 +42,34 @@ type = "prompt"
     rebase_icon = " "
     revert_icon = " "
     tag_icon = " "
-[[blocks]]
-  alignment = "right"
-  type = "prompt"
-  [[blocks.segments]]
-    type = "go"
-    style = "plain"
-    template = "  {{ .Full }} "
-  [[blocks.segments]]
-    type = "python"
-    style = "plain"
-    template = "  {{ .Full }} "
 
+[[blocks]]
+alignment = "right"
+type = "prompt"
+  [[blocks.segments]]
+      type = "go"
+      style = "plain"
+      foreground = "p:go_blue"  # 使用新定義的 Go 藍
+      template = " {{ .Full }} "
+      [blocks.segments.properties]
+        display_mode = "files"
+
+    [[blocks.segments]]
+      type = "python"
+      style = "plain"
+      foreground = "p:py_yellow" # 使用新定義的 Python 黃
+      template = " {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} "
+      [blocks.segments.properties]
+        display_mode = "context"
+        fetch_virtual_env = true
 
 [[blocks]]
 alignment = "left"
 type = "prompt"
+newline = true # 這行是關鍵，強制換行
   [[blocks.segments]]
-    style = "plain"
     foreground = "p:closer"
+    style = "plain"
     template = ""
     type = "text"
 

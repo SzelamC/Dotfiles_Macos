@@ -13,6 +13,7 @@ return {
             { "<leader>ca", false },
             { "<leader>cA", false },
             { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action" },
+            { "gl", vim.diagnostic.open_float, desc = "Hover Document" },
           },
         },
       },
