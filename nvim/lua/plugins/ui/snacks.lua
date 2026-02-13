@@ -10,14 +10,9 @@ return {
       scroll = { enabled = false },
       indent = { enabled = false },
       picker = {
+        hidden = true,
         sources = {
-          files = {
-            ignored = true,
-            hidden = true,
-          },
           explorer = {
-            ignored = true,
-            hidden = true,
             auto_close = true,
             layout = {
               layout = {

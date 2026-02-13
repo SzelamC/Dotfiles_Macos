@@ -18,6 +18,18 @@ return {
     },
   },
   {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      style = "storm",
+      styles = {
+        keywords = { italic = false },
+        floats = "transparent",
+      },
+      lualine_bold = true,
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
