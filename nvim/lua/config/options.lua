@@ -13,3 +13,8 @@ vim.o.winborder = "rounded"
 vim.o.swapfile = false
 vim.o.winblend = 0
 vim.g.autoformat = false
+
+vim.opt.list = false
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.o.timeoutlen = 500

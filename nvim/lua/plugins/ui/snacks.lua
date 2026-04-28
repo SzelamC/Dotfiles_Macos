@@ -29,7 +29,7 @@ return {
                     height = 1,
                     border = "bottom",
                     keys = {
-                      ["<Esc>"] = "cancel",
+                      ["<esc>"] = "cancel",
                     },
                   },
                   { win = "list", border = "none" },
