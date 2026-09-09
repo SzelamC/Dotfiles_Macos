@@ -1,0 +1,158 @@
+{
+  "profiles" : [
+    {
+      "id" : "E69574E8-6E65-432C-AEF2-C1ABE2D5E90A",
+      "name" : "Default",
+      "workspaces" : [
+        {
+          "apps" : [
+            {
+              "autoOpen" : true,
+              "bundleIdentifier" : "com.mitchellh.ghostty",
+              "iconPath" : "/Applications/Ghostty.app/Contents/Resources/Ghostty.icns",
+              "name" : "Ghostty"
+            },
+            {
+              "bundleIdentifier" : "com.henrikruscon.Klack",
+              "iconPath" : "/Applications/Klack.app/Contents/Resources/AppIcon.icns",
+              "name" : "Klack"
+            }
+          ],
+          "display" : "34M2C5500Q",
+          "id" : "80C09D26-BCF3-4AAA-9152-9C64588E1478",
+          "name" : "terminal",
+          "openAppsOnActivation" : true,
+          "shortcut" : "opt+1",
+          "symbolIconName" : "apple.terminal.fill"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.todesktop.230313mzl4w4u92",
+              "iconPath" : "/Applications/Cursor.app/Contents/Resources/Cursor.icns",
+              "name" : "Cursor"
+            }
+          ],
+          "display" : "34M2C5500Q",
+          "id" : "1429F6C5-C0D0-4AF7-80BA-A27874D26880",
+          "name" : "code",
+          "shortcut" : "opt+2",
+          "symbolIconName" : "apple.terminal"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "app.zen-browser.zen",
+              "iconPath" : "/Applications/Zen.app/Contents/Resources/firefox.icns",
+              "name" : "Zen"
+            },
+            {
+              "bundleIdentifier" : "com.google.Chrome",
+              "iconPath" : "/Applications/Google Chrome.app/Contents/Resources/app.icns",
+              "name" : "Google Chrome"
+            },
+            {
+              "bundleIdentifier" : "com.logi.optionsplus",
+              "iconPath" : "/Applications/logioptionsplus.app/Contents/Resources/electron.icns",
+              "name" : "Logi Options+"
+            },
+            {
+              "bundleIdentifier" : "io.trezor.TrezorSuite",
+              "iconPath" : "/Applications/Trezor Suite.app/Contents/Resources/icon.icns",
+              "name" : "Trezor Suite"
+            },
+            {
+              "bundleIdentifier" : "org.openlogi.openlogi",
+              "iconPath" : "/Applications/OpenLogi.app/Contents/Resources/AppIcon.icns",
+              "name" : "OpenLogi"
+            },
+            {
+              "bundleIdentifier" : "com.apple.finder",
+              "iconPath" : "/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns",
+              "name" : "Finder"
+            },
+            {
+              "bundleIdentifier" : "com.apple.systempreferences",
+              "iconPath" : "/System/Applications/System Settings.app/Contents/Resources/PrefApp.icns",
+              "name" : "System Settings"
+            },
+            {
+              "bundleIdentifier" : "com.apple.audio.AudioMIDISetup",
+              "iconPath" : "/System/Applications/Utilities/Audio MIDI Setup.app/Contents/Resources/AppIcon.icns",
+              "name" : "Audio MIDI Setup"
+            },
+            {
+              "bundleIdentifier" : "com.nordvpn.macos",
+              "iconPath" : "/Applications/NordVPN.app/Contents/Resources/AppIconSideload.icns",
+              "name" : "NordVPN"
+            },
+            {
+              "bundleIdentifier" : "com.apple.QuickTimePlayerX",
+              "iconPath" : "/System/Applications/QuickTime Player.app/Contents/Resources/AppIcon.icns",
+              "name" : "QuickTime Player"
+            }
+          ],
+          "display" : "34M2C5500Q",
+          "id" : "14788203-F1DB-4A13-9EC2-803947D197AA",
+          "name" : "browser",
+          "openAppsOnActivation" : false,
+          "shortcut" : "opt+3",
+          "symbolIconName" : "figure.surfing"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "notion.id",
+              "iconPath" : "/Applications/Notion.app/Contents/Resources/electron.icns",
+              "name" : "Notion"
+            },
+            {
+              "bundleIdentifier" : "com.hnc.Discord",
+              "iconPath" : "/Applications/Discord.app/Contents/Resources/electron.icns",
+              "name" : "Discord"
+            },
+            {
+              "bundleIdentifier" : "com.apple.Notes",
+              "iconPath" : "/System/Applications/Notes.app/Contents/Resources/AppIcon.icns",
+              "name" : "Notes"
+            },
+            {
+              "bundleIdentifier" : "com.electron.dockerdesktop",
+              "iconPath" : "/Applications/Docker.app/Contents/MacOS/Docker Desktop.app/Contents/Resources/icon.icns",
+              "name" : "Docker Desktop"
+            }
+          ],
+          "display" : "34M2C5500Q",
+          "id" : "2E782E44-6F79-409A-B9E5-2EFF175BD547",
+          "name" : "utils",
+          "shortcut" : "opt+4",
+          "symbolIconName" : "note"
+        },
+        {
+          "apps" : [
+            {
+              "bundleIdentifier" : "com.tinyapp.TablePlus",
+              "iconPath" : "/Applications/Nix Apps/TablePlus.app/Contents/Resources/AppIcon.icns",
+              "name" : "TablePlus"
+            },
+            {
+              "bundleIdentifier" : "com.postmanlabs.mac",
+              "iconPath" : "/Applications/Nix Apps/Postman.app/Contents/Resources/app.icns",
+              "name" : "Postman"
+            },
+            {
+              "bundleIdentifier" : "com.apple.Terminal",
+              "iconPath" : "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns",
+              "name" : "Terminal"
+            }
+          ],
+          "display" : "34M2C5500Q",
+          "id" : "E08C50A0-CC98-4CE5-BBA8-E0C7055FA7BC",
+          "name" : "other",
+          "shortcut" : "opt+5",
+          "symbolIconName" : "scribble.variable"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  description = "Example Darwin system flake";
+  description = "Szelam Darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -11,7 +11,7 @@
       flake = false;
     };
     homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
+      url = "github:Homebrew/homebrew-cask";
       flake = false;
     };
     homebrew-bundle = {
@@ -28,7 +28,6 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [ 
-            pkgs.neovim
             pkgs.aerospace
             pkgs.wezterm
             pkgs.raycast
@@ -40,15 +39,21 @@
             pkgs.rustup
             pkgs.nodejs
             pkgs.fzf
-            pkgs.python3
-            pkgs.discord
             pkgs.ripgrep
             pkgs.fd
             pkgs.ast-grep
-            pkgs.bruno
-            pkgs.tableplus
             pkgs.bun
-            pkgs.deno
+            pkgs.postman
+            # pkgs.bruno
+            pkgs.tmux
+            pkgs.uv
+            pkgs.jq
+            pkgs.redis
+            pkgs.pnpm
+            pkgs.btop
+            pkgs.just
+            pkgs.oh-my-posh
+            # pkgs.deno
         ];
 
     homebrew = {
@@ -57,32 +62,39 @@
             "Klack" = 6446206067;
             "Hidden Bar" = 1452453066;
         };
-        taps = [
-            "homebrew/services"
-        ];
         brews = [
+	    "wget"
             "docker"
             "docker-compose"
+            "czg"
+            "influxdb"
+            "influxdb-cli"
+            "temporal"
+        ];
+        casks = [
+            "ghostty"
+            "zen"
         ];
         onActivation = {
           cleanup = "zap";
+          autoUpdate = true;
+          upgrade = true;
         };
     };
 
     fonts.packages = [
-        (pkgs.nerdfonts.override { fonts = [ "ZedMono" ]; })
+        pkgs.nerd-fonts.zed-mono
     ];
 
-      # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
-      # nix.package = pkgs.nix;
+      system.primaryUser = "szelam";
+      nix.enable = true;
+      services.redis.enable = true;
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
       # Create /etc/zshrc that loads the nix-darwin environment.
       programs.zsh.enable = true;  # default shell on catalina
-      # programs.fish.enable = true;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -115,30 +127,29 @@
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."szelam" = nix-darwin.lib.darwinSystem {
       modules = [
-	configuration 
-	nix-homebrew.darwinModules.nix-homebrew
+        ({ config, ... }: {                                                          # <--
+          homebrew.taps = builtins.attrNames config.nix-homebrew.taps;               # <--
+        })  
+        configuration 
+        nix-homebrew.darwinModules.nix-homebrew
         {
           nix-homebrew = {
             # Install Homebrew under the default prefix
             enable = true;
-
             # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
             enableRosetta = true;
-
             # User owning the Homebrew prefix
             user = "szelam";
-
             # Optional: Declarative tap management
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
               "homebrew/homebrew-bundle" = homebrew-bundle;
             };
-
             # Optional: Enable fully-declarative tap management
             #
             # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
-            mutableTaps = true;
+            mutableTaps = false;
           };
         }
       ];
