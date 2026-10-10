@@ -1,0 +1,86 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+final_space = true
+version = 4
+
+[palette]
+os = "#ACB0BE"
+closer = "p:os"
+pink = "#F5C2E7"
+lavender = "#B4BEFE"
+teal = "#81c8be"
+blue = "#89B4FA"
+sky = "#99d1db"
+go_blue = "#89DCEB"
+py_yellow = "#F9E2AF"
+
+[[blocks]]
+alignment = "left"
+type = "prompt"
+  [[blocks.segments]]
+    foreground = "p:blue"
+    style = "plain"
+    template = "{{ .UserName }}:{{ .HostName }} "
+    type = "session"
+  [[blocks.segments]]
+    foreground = "p:pink"
+    style = "plain"
+    template = "{{ .Path }} "
+    type = "path"
+    [blocks.segments.options]
+    style = "full"
+  [[blocks.segments]]
+    foreground = "p:lavender"
+    template = "{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed)}}{{ end }}{{ if .Staging.Changed }} {{ .Staging.String }}{{ end }} "
+    style = "plain"
+    type = "git"
+    [blocks.segments.properties]
+      fetch_status = true
+      fetch_upstream_icon = true
+      branch_icon = " "
+      status_colors = true
+      branch_ahead_icon = "⇡ "
+      branch_behind_icon = "⇣ "
+
+  [[blocks.segments]]
+    style = "plain"
+    template = "{{ .CurrentDate | date .Format }} "
+    type = "time"
+    foreground = "p:teal"
+    [blocks.segments.properties]
+    time_format = "RFC822"
+
+[[blocks]]
+alignment = "right"
+type = "prompt"
+  [[blocks.segments]]
+      type = "go"
+      style = "plain"
+      foreground = "p:go_blue"  # 使用新定義的 Go 藍
+      template = " {{ .Full }} "
+      [blocks.segments.properties]
+        display_mode = "files"
+    [[blocks.segments]]
+      type = "python"
+      style = "plain"
+      foreground = "p:py_yellow" # 使用新定義的 Python 黃
+      template = " {{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }} "
+      [blocks.segments.properties]
+        display_mode = "context"
+        fetch_virtual_env = true
+
+[[blocks]]
+alignment = "left"
+type = "prompt"
+newline = true # 這行是關鍵，強制換行
+  [[blocks.segments]]
+    foreground = "p:closer"
+    style = "plain"
+    template = ""
+    type = "text"
+
+[maps.user_name]
+szelam = "󰊠"
+root = ""
+
+[maps.host_name]
+MacBookPro = ""
